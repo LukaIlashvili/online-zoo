@@ -3,42 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main Page</title>
+    <title>Online Zoo</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="../../assets/images/Logo.png" type="image/x-icon">
 </head>
 <body>
-    <nav>
-        <div class="navbar">
-        <div class="logo">
-            <a href="#"><img src="../../assets/images/Logo.png" alt="Website logo"></a>
+    <!-- Pop up window -->
+    <div id="popup1" class="popup-overlay">
+        <div class="popup-content">
+            <button class="close-popup" id="close-btn">&times;</button>
+            
+            <div class="popup-image">
+                <img src="../../assets/images/popup1.png" alt="Hand holding paw">
+            </div>
+
+            <div class="popup-info">
+                <h2>TOGETHER WE CARE, <br> SAVE AND PROTECT!</h2>
+                <p>Your most generous gift not only cares for countless animals, but it also offers hope and a vital lifeline to the world’s most endangered wildlife relying on us to survive.</p>
+                
+                <div class="donation-options">
+                    <button class="amount-btn">$20</button>
+                    <button class="amount-btn">$30</button>
+                    <button class="amount-btn">$50</button>
+                    <button class="amount-btn">$80</button>
+                    <button class="amount-btn">$100</button>
+                    <button class="amount-btn other">OTHER AMOUNT</button>
+                </div>
+            </div>
         </div>
-        <ul class="tabs">
-            <li class="active"><a href="#">ABOUT</a></li>
-            <li><a href="#">MAP</a></li>
-            <li><a href="#">ZOOS</a></li>
-            <li><a href="#">CONTACT US</a></li>
-            <li><a href="#">DESIGN</a></li>
-        </ul>
-        <ul class="socials">
-            <li><a href="#"><img src="../../assets/icons/YouTube.png" alt="YouTube logo"></a></li>
-            <li><a href="#"><img src="../../assets/icons/Instagram.png" alt="Instagram logo"></a></li>
-            <li><a href="#"><img src="../../assets/icons/Facebook.png" alt="Facebook logo"></a></li>
-        </ul>
-        <button class="toggle">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </button>
-        </div>
-    </nav> 
+    </div>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="navbar">
+            <div class="logo">
+                <a href="#"><img src="../../assets/images/Logo.png" alt="Website logo"></a>
+            </div>
+            <ul class="tabs">
+                <button class="close-sidebar">&times;</button>
+
+                <li class="active"><a href="#">ABOUT</a></li>
+                <li><a href="#">MAP</a></li>
+                <li><a href="#">ZOOS</a></li>
+                <li><a href="#">CONTACT US</a></li>
+                <li><a href="#">DESIGN</a></li>
+            </ul>
+            <ul class="socials">
+                <li><a href="#"><img src="../../assets/icons/YouTube.png" alt="YouTube logo"></a></li>
+                <li><a href="#"><img src="../../assets/icons/Instagram.png" alt="Instagram logo"></a></li>
+                <li><a href="#"><img src="../../assets/icons/Facebook.png" alt="Facebook logo"></a></li>
+            </ul>
+            <button class="toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            </div>
+        </nav> 
+    </header>
     <main>
         <section id="Hero">
             <div class="hero-content">
-                <h1>Welcome to the Online Zoo!</h1>
-                <p>Discover the wonders of the animal kingdom from the comfort of your home.</p>
-                <a href="#" class="btn">Explore Now</a>
+                <h1>WATCH YOUR FAVORITE ANIMAL ONLINE</h1>
+                <p>Explore the exciting and mysterious world of wild animals in a natural setting without leaving your home.</p>
+                <a href="#" class="live-cam-btn">VIEW LIVE CAM <span id="arrow">&rarr;</span></a>
             </div>
         </section>
     </main>
 </body>
+<script src="script.js"></script>
 </html>
