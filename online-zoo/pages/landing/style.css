@@ -1,13 +1,13 @@
 @font-face {
     font-family: "Montserrat";
-    src: url("../../assets/fonts/Montserrat/static/Montserrat-Bold.ttf") format("truetype");
+    src: url("../../assets/fonts/Montserrat/static/Montserrat-Regular.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: "Montserrat";
-    src: url("../../assets/fonts/Montserrat/static/Montserrat-Black.ttf") format("truetype");
+    src: url("../../assets/fonts/Montserrat/static/Montserrat-Bold.ttf") format("truetype");
     font-weight: bold;
     font-style: normal;
 }
@@ -19,7 +19,6 @@
 }
 
 body {
-    background-color: #f0f0f0;
     color: #333;
 }
 
@@ -45,6 +44,7 @@ nav {
     margin: 10px;
     text-transform: uppercase;
     font-family: "Montserrat";
+    font-weight: bold;
     font-size: 18px;
 }
 
@@ -308,4 +308,142 @@ nav {
     .navbar.menu-active .toggle {
         display: none;
     }
+}
+
+/* ABOUT SECTION */
+
+#about {
+    max-width: 1400px;
+    margin: auto;
+    margin-top: 150px;
+}
+
+.info1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 40px;
+}
+
+.info h2 {
+    color: #00A092;
+    font-family: "Montserrat";
+    font-size: 54px;
+}
+
+.info p {
+    font-family: "Montserrat";
+    margin-top: 50px;
+}
+
+.text1 {
+    width: 40%;
+    margin-top: 70px;
+}
+
+.imgDiv {
+    display: flex;
+    width: 60%;
+}
+
+.imgDiv img {
+    width: 100%;
+}
+
+.info2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 150px;
+}
+
+.text2 {
+    margin-top: 115px;
+}
+
+#quick-donate-section {
+    margin: auto;
+    margin-top: 150px;
+    background-color: #20113D;
+    color: white;
+}
+
+#donate-row {
+    max-width: 1400px;
+    margin: auto;
+    height: 221px;
+}
+
+.donate-row-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.donate-text {
+    width: 70%;
+    font-family: "Montserrat";
+    margin-top: 50px;
+}
+
+.donate-text h3 {
+    font-size: 42px;
+}
+
+.donate-text p {
+    font-size: 18px;
+    margin-top: 20px;
+    width: 70%;
+}
+
+.quick-donate {
+    width: 30%;
+    font-family: "Montserrat";
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.quick-donate p {
+    font-size: 26px;
+    margin-top: 45px;
+}
+
+#donate-popup-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid white;
+    margin-top: 10px;
+    width: 320px;
+    border-radius: 3px;
+    overflow: hidden;
+    user-select: none;
+    cursor: pointer;
+}
+
+#donate-popup-btn p {
+    font-size: 18px;
+    margin: 0;
+    padding-left: 15px;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#donate-popup-btn span {
+    font-size: 30px;
+    background-color: #F58021;
+    width: 70px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    cursor: pointer;
+}
+
+#donate-popup-btn:hover span {
+    background-color: #D26004;
+    transition: .2s ease-in-out;
 }

@@ -6,10 +6,10 @@ const popup = document.getElementById("popup1")
 const closeBtn2 = document.getElementById("close-btn")
 
 // popup configs
-setTimeout(() => {
-    popup.classList.add("active")
-    document.body.style.overflow = "hidden"
-}, 2000)
+// setTimeout(() => {
+//     popup.classList.add("active")
+//     document.body.style.overflow = "hidden"
+// }, 2000)
 
 closeBtn2.addEventListener("click", () => {
     popup.classList.remove("active")
