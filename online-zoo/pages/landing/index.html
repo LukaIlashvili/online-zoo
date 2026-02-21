@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Online Zoo</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="../../assets/images/Logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../../assets/icons/Favicon.png" type="image/x-icon">
 </head>
 <body>
     <!-- Pop up window -->
@@ -30,6 +30,118 @@
                     <button class="amount-btn other">OTHER AMOUNT</button>
                 </div>
             </div>
+        </div>
+    </div>
+    <!-- Donation windows -->
+    <div id="donate-modal" class="popup-overlay donation-overlay">
+        <div class="popup-content donation-content">
+            
+            <div class="modal-header">
+                <h3>MAKE YOUR DONATION</h3>
+                <button type="button" class="close-popup" id="close-donate-steps">&times;</button>
+            </div>
+
+            <form id="donation-steps-form">
+                <div class="form-step active" data-step="1">
+                    <div class="step-body">
+                        <p class="section-title">Donation Information:</p>
+                        <div class="container">
+                        <p class="input-label"><span style="color: #00A092;">*</span> Choose your donation amount:</p>
+                        
+                        <div class="amount-grid">
+                            <label class="amount-card"><input type="radio" name="amount" value="10"> $10</label>
+                            <label class="amount-card"><input type="radio" name="amount" value="20"> $20</label>
+                            <label class="amount-card"><input type="radio" name="amount" value="30"> $30</label>
+                            <label class="amount-card"><input type="radio" name="amount" value="50"> $50</label>
+                            <label class="amount-card"><input type="radio" name="amount" value="80"> $80</label>
+                            <label class="amount-card"><input type="radio" name="amount" value="100"> $100</label>
+                        </div>
+
+                        <div class="other-amount">
+                            <button class="otr-btn">OTHER AMOUNT</button>
+                            <input type="number" name="custom_amount">
+                        </div>
+
+                        <div class="fav-pet">
+                            <button class="otr-btn1">FOR SPECIAL PET</button>
+                            <select name="pet">
+                                <option value="">Choose your favourite</option>
+                                <option value="panda">Lukas the Panda</option>
+                                <option value="panda">Andy the Lemur</option>
+                                <option value="panda">Glen the Gorilla</option>
+                                <option value="panda">Mike the Alligator</option>
+                                <option value="panda">Sam & Lora the eagles family</option>
+                                <option value="panda">Liz the Koala</option>
+                                <option value="panda">Shake the Lion</option>
+                                </select>
+                        </div>
+
+                        <label class="checkbox-container">
+                            <input type="checkbox"> Make this a monthly recurring gift
+                        </label>
+                    </div>
+                    </div>
+                </div>
+
+                <div class="form-step" data-step="2">
+                    <div class="step-body">
+                        <p class="section-title">Billing Information:</p>
+                        <div class="container">
+                        <div class="input-field">
+                            <label>* Your Name</label>
+                            <input type="text" placeholder="First and last name" required>
+                        </div>
+                        <div class="input-field">
+                            <label>* Your Email Address</label>
+                            <input type="email" placeholder="Enter your email" required>
+                        </div>
+                        <p>You will receive emails from the Online Zoo, including updates and news on the latest discoveries and translations. You can unsubscribe at any time.</p>
+                    </div>
+                    </div>
+                </div>
+
+                <div class="form-step" data-step="3">
+                    <div class="step-body">
+                        <p class="section-title">Payment Information:</p>
+                        <div class="container">
+                        <div class="flex-row">
+                            <div class="input-field date">
+                            <label>* Credit Card Number</label>
+                            <input type="text" placeholder="Card number" required>
+                            </div>
+                            <div class="input-field-small">
+                                <label>* CVV Number</label>
+                                <input type="text" maxlength="3" required>
+                            </div>
+
+                        </div>
+                        <div class="input-field">
+                            <div class="input-field date">
+                                <label>* Expiration Date</label>
+                                <div class="date-inputs">
+                                    <select><option>Month</option></select>
+                                    <select><option>Year</option></select>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <div class="progress-dots">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                    <div class="container1">
+                    <div class="form-nav">
+                        <button type="button" id="back-btn" class="back-text">Back</button>
+                        <button type="button" id="next-btn" class="next-btn">NEXT &rarr;</button>
+                    </div>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
     <!-- Header -->
@@ -102,6 +214,138 @@
                         <p>Quick Donate</p>
                         <div id="donate-popup-btn">
                             <p>$ DONATION AMOUNT</p><span>&rarr;</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="pet-grid">
+            <div class="pet-grid-content">
+                <div class="pet-grid-title">
+                    <h2>MEET SOME OUR PETS</h2>
+                    <p>Do you have a special place in your heart for animals? Who are your favorites? Perhaps you'd like to donate to special ones or all our pets? We think it's important for you to choose how your donation is used. </p>
+                </div>
+                <div class="pet-card-carousel">
+                    <button>&larr;</button>
+                    <button>&rarr;</button>
+                </div>
+                <div class="grid-pets">
+                    <div class="pet-card">
+                        <div class="pet-name-tag">Lucas</div>
+                        <img src="../../assets/images/lucas.png" alt="panda pic">
+                        <div class="pet-info">
+                            <h4>Giant Panda</h4>
+                            <p>Native to central China, giant pandas have come to symbolize vulnerable species.</p>
+                            <a href="#" class="live-cam">VIEW LIVE CAM &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="pet-card">
+                        <div class="pet-name-tag">Andy</div>
+                        <img src="../../assets/images/andy.png" alt="lemur pic">
+                        <div class="pet-info">
+                            <h4>Madagascarian Lemur</h4>
+                            <p>Lemurs are considered the world’s most endangered group of mammals.</p>
+                            <a href="#" class="live-cam">VIEW LIVE CAM &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="pet-card">
+                        <div class="pet-name-tag">Glen</div>
+                        <img src="../../assets/images/glen.png" alt="gorilla pic">
+                        <div class="pet-info">
+                            <h4>Gorilla in Congo</h4>
+                            <p>Variety of snacks very important for the healthy life of gorillas and his plenty of babies.</p>
+                            <a href="#" class="live-cam">VIEW LIVE CAM &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="pet-card">
+                        <div class="pet-name-tag">Mike</div>
+                        <img class="mike" src="../../assets/images/mike.png" alt="alligator pic">
+                        <div class="pet-info">
+                            <h4>Chinese Alligator</h4>
+                            <p>From nose to tail, belly to back, hard scales protect this petite alligator. </p>
+                            <a href="#" class="live-cam">VIEW LIVE CAM &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="pet-card">
+                        <div class="pet-name-tag">Sam & Lora</div>
+                        <img src="../../assets/images/eagles.png" alt="eagle pic">
+                        <div class="pet-info">
+                            <h4>West End Bald Eagles</h4>
+                            <p>Pair of eagle parents lay and protect eggs, feed their chicks and teach them to hunt and fly.</p>
+                            <a href="#" class="live-cam">VIEW LIVE CAM &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="pet-card">
+                        <div class="pet-name-tag">Liz</div>
+                        <img src="../../assets/images/koala.png" alt="koala pic">
+                        <div class="pet-info">
+                            <h4>Australian Koala</h4>
+                            <p>The elevated walkways bring you to eye level with the koalas as they perch in their forest. </p>
+                            <a href="#" class="live-cam">VIEW LIVE CAM &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="pet-card">
+                        <div class="pet-name-tag">Shake</div>
+                        <img src="../../assets/images/lion.png" alt="lion pic">
+                        <div class="pet-info">
+                            <h4>African Lion</h4>
+                            <p>Lions roam the savannas and grasslands of Africa, hunting and raising cubs in the pride.</p>
+                            <a href="#" class="live-cam">VIEW LIVE CAM &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="pet-card">
+                        <div class="pet-name-tag">Senja</div>
+                        <img src="../../assets/images/tiger.png" alt="tiger pic">
+                        <div class="pet-info">
+                            <h4>Sumatran Tiger</h4>
+                            <p>Sumatran Tigers are the smallest of the five sub-species, and are found in Indonesia.</p>
+                            <a href="#" class="live-cam">VIEW LIVE CAM &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+                <button class="choose-btn">CHOOSE YOUR FAVORITE &rarr;</button>
+            </div>
+        </section>
+        <section id="pay-feed">
+            <div class="pay-feed-wrap">
+                <h2>PAY AND FEED</h2>
+                <div class="part1">
+                    <div class="line">
+                        <span class="num">01</span>
+                        <div class="head-line"></div>
+                    </div>
+                    
+                    <div class="content">
+                        <img src="../../assets/images/monkey.png" alt="monkey pic">
+                        <div class="text-content">
+                            <img src="../../assets/icons/Vector1.png" alt="logo">
+                            <h4>Your donation has an impact</h4>
+                            <p>Providing our animals with high-quality nutritious diets is just one element of animal care at our Zoo. We do all the best so that our animals can eat food similar to what they might find in their natural habitats while making sure they get the right mix of nutrients, proteins, and vitamins to be happy and healthy. Please help us provide nutritious food for our animals by donating. The generosity of people like you can help us make sure that our animals enjoy good food that keeps them in great condition.</p>
+                        </div>
+                    </div>
+                    <div class="line">
+                        <span class="num">02</span>
+                        <div class="head-line"></div>
+                    </div>
+                    <div class="content">
+                        <img src="../../assets/images/banana.png" alt="monkey pic">
+                        <div class="text-content">
+                            <img src="../../assets/icons/vector2.png" alt="logo">
+                            <h4>Make a donation</h4>
+                            <p>You can donate through your credit card without any fees. It is easy and safe. We do not keep donors' personal information on an online network. Choose an amount to give and the pet's name if needed. One of the most effective ways you can give is by making regular donations.</p>
+                        </div>
+                    </div>
+                    <div class="line">
+                        <span class="num">03</span>
+                        <div class="head-line"></div>
+                    </div>
+                    <div class="content">
+                        <img src="../../assets/images/monkeyeat.png" alt="monkey pic">
+                        <div class="text-content">
+                            <img src="../../assets/icons/vector3.png" alt="logo">
+                            <h4>Bring your food charity — straight to your favorites pets.</h4>
+                            <p>After your donation, the animal receives its favorite foods. You can support your favorite animals or any animal you care about and make a real personal impact. Never doubt that your donation can make a difference even if it is small. </p>
+                            <button>DONATE NOW &rarr;</button>
                         </div>
                     </div>
                 </div>
