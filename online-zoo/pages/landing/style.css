@@ -954,4 +954,333 @@ nav {
     background-color: #D26004;
 }
 
+/* Review section */
 
+#reviews {
+    position: relative;
+    font-family: "Montserrat";
+    overflow-x: hidden;
+}
+
+#pandabg {
+    width: 100%;
+    display: block;
+}
+
+.review-wrap {
+    padding-top: 200px;
+    position: absolute;
+    display: flex;
+}
+
+.review-head {
+    color: white;
+    transition: opacity 0.6s ease, visibility 0.6s;
+}
+
+.texttt {
+    margin-left: 25%;
+}
+
+.review-head h2 {
+    font-size: 54px;
+}
+
+.review-head p {
+    font-size: 22px;
+    margin-top: 30px;
+}
+
+.review-card {
+    background-color: white;
+    color: black;
+    padding: 40px;
+    width: 500px;
+    height: 400px;
+    border-radius: 5px;
+}
+
+.review-card h4 {
+    font-size: 26px;
+    margin-top: 20px;
+}
+
+.review-card p {
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+.review-card .author {
+    font-weight: bold;
+}
+
+.reviews {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 25px;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.review-btns {
+    position: absolute;
+    display: flex;
+    left: 44.3%;
+    gap: 50px;
+    font-weight: bold;
+    transform: translateY(1100px);
+}
+
+.review-btns button {
+    background: transparent;
+    border: 1px solid white;
+    font-size: 52px;
+    color: white;
+    padding: 5px;
+    border-radius: 8px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.review-btns button:hover {
+    background-color: white;
+    color: #20113D;
+}
+
+.feedback-button {
+    position: absolute;
+    bottom: 0;
+    padding: 100px 200px;
+}
+
+.feedback-button button {
+    font-size: 18px;
+    padding: 15px 25px;
+    background: transparent;
+    border: 1px solid white;
+    border-radius: 4px;
+    color: white;
+    font-family: "Montserrat";
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.feedback-button button:hover {
+    color: #20113D;
+    background-color: white;
+}
+
+#reviews.active-carousel .review-head {
+    opacity: 0;
+    visibility: hidden;
+}
+
+#reviews.active-carousel .reviews {
+    transform: translateX(-45%);
+}
+
+/* FINAL SECTIONNNN!!!! */
+
+#animal-care {
+    padding-top: 130px;
+    font-family: "Montserrat";
+}
+
+.animal-care-wrap {
+    max-width: 1400px;
+    margin: auto;
+}
+
+.animal-care-head {
+    text-align: center;
+}
+
+.animal-care-head h2 {
+    font-size: 54px;
+    color: #00A092;
+}
+
+.animal-care-head p {
+    font-size: 26px;
+    margin-top: 30px;
+}
+
+.animal-care-grid {
+    display: grid;
+    /* We'll use 6 small columns as a 'base' so we can do 2/3 and 1/3 splits */
+    grid-template-columns: repeat(6, 1fr); 
+    gap: 30px;
+    margin-top: 60px;
+}
+
+/* ROW 1: Koala (Large) and Panda */
+.animal-care-grid > img:first-child {
+    grid-column: span 4; /* Takes up 4/6 of the width */
+    width: 100%; /* Adjust based on Figma */
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.animal-care-grid .care-card:nth-child(2) {
+    grid-column: span 2; /* Takes up the remaining 2/6 */
+}
+
+/* ROW 2: The Three Musketeers (Tiger, Lemur, Eagles) */
+.animal-care-grid .care-card:nth-child(3),
+.animal-care-grid .care-card:nth-child(4),
+.animal-care-grid .care-card:nth-child(5) {
+    grid-column: span 2; /* Each takes 1/3 of the row (2/6 each) */
+}
+
+/* Card Styling Consistency */
+.care-card {
+    display: flex;
+    flex-direction: column;
+    background-color: #1B0B30;
+    color: white;
+    border-radius: 5px;
+    overflow: hidden;
+    text-align: center;
+    height: 100%;
+}
+
+.care-card p {
+    font-size: 18px;
+    margin-top: 30px;
+    padding: 0 20px;
+    flex-grow: 1;
+}
+
+.care-card img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.care-card button {
+    background: transparent;
+    color: #F58021;
+    font-size: 26px;
+    border: none;
+    padding: 60px;
+    font-family: "Montserrat";
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.care-card button:hover {
+    color: white;
+}
+
+.choose-btn {
+    margin: auto;
+    display: block;
+    padding: 15px 30px;
+    margin-top: 100px;
+    background: transparent;
+    border: 1px solid black;
+    border-radius: 4px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.choose-btn:hover {
+    background-color: #1B0B30;
+    color: white;
+}
+
+.touch-animals {
+    margin-top: 150px;
+}
+
+/* FOOTER */
+
+footer {
+    margin-top: 150px;
+    background-color: #20113D;
+    width: 100%;
+    color: white;
+    font-family: "Montserrat";
+    padding-bottom: 30px;
+    padding-top: 30px;
+}
+
+.footer-wrap {
+    max-width: 1400px;
+    margin: auto;
+}
+
+.footer-top-column {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-top-column .footer-images {
+    display: flex;
+    gap: 65px;
+}
+
+.footer-top-column .footer-nav ul {
+    display: flex;
+    justify-content: space-around;
+    gap: 50px;
+}
+
+.footer-top-column .footer-nav ul li {
+    list-style-type: none;
+}
+
+.footer-top-column .footer-nav ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+/* DONATE FOOTER BUTTON */
+.footer-button button {
+    background: transparent;
+    padding: 15px 30px;
+    font-size: 18px;
+    color: white;
+    font-weight: bold;
+    border: 1px solid white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.footer-button button:hover {
+    background-color: white;
+    color: #20113D;
+}
+
+/* FOOTER BOTTOM COLUMN */
+
+.footer-line {
+    width: 100%;
+    height: 1px;
+    background-color: white;
+    margin-top: 50px;
+}
+
+.footer-bottom-column {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.footer-bottom-column .footer-copyright {
+    display: flex;
+    gap: 65px;
+    align-items: center;
+}
+
+.footer-bottom-column .footer-socials {
+    display: flex;
+    gap: 40px;
+}
+
+.footer-bottom-column .footer-socials img {
+    cursor: pointer;
+}

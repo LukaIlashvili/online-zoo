@@ -11,6 +11,17 @@ const donationForm = document.getElementById("donation-steps-form")
 const grid = document.querySelector(".grid-pets")
 const nextArr = document.querySelector(".pet-card-carousel button:nth-child(2)")
 const prevArr = document.querySelector(".pet-card-carousel button:nth-child(1)")
+const reviewsSection = document.querySelector("#reviews")
+const nextBtn1 = document.querySelector(".review-btns button:last-child")
+const prevBtn1 = document.querySelector(".review-btns button:first-child")
+
+nextBtn1.addEventListener("click", () => {
+    reviewsSection.classList.add("active-carousel")
+})
+
+prevBtn1.addEventListener("click", () => {
+    reviewsSection.classList.remove("active-carousel")
+})
 
 let currentPosition = 0
 const scrollStep = 220
@@ -103,10 +114,10 @@ updateFormUI()
 
 
 // popup configs
-// setTimeout(() => {
-//     popup.classList.add("active")
-//     document.body.style.overflow = "hidden"
-// }, 2000)
+setTimeout(() => {
+    popup.classList.add("active")
+    document.body.style.overflow = "hidden"
+}, 2000)
 
 closeBtn2.addEventListener("click", () => {
     popup.classList.remove("active")
