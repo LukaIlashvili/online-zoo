@@ -1,0 +1,268 @@
+@font-face {
+    font-family: "Montserrat";
+    src: url("../../assets/fonts/Montserrat/static/Montserrat-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Montserrat";
+    src: url("../../assets/fonts/Montserrat/static/Montserrat-Bold.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    color: #333;
+}
+
+/* Navbar */
+
+nav {
+    background-color: #F58021;
+    width: 100%;
+    font-family: "Montserrat";
+    font-weight: bold;
+    padding: 20px;
+}
+
+.nav-wrap {
+    max-width: 1400px;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-other {
+    display: flex;
+    gap: 60px;
+    align-items: center;
+}
+
+.close-sidebar{
+    display: none;
+}
+
+.tabs ul{
+    display: flex;
+    gap: 48px;
+    font-size: 18px;
+}
+
+.tabs ul li {
+    list-style: none;
+}
+
+.tabs ul li a {
+    text-decoration: none;
+    color: black;
+    transition: 0.3s;
+}
+
+.tabs .active a {
+    color: #00A092;
+}
+
+.toggle {
+    display: none;
+}
+
+.nav-socials {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-socials img {
+    transition: 0.2s ease-in-out;
+}
+
+.nav-socials img:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.tabs ul li a:hover {
+    color: #00A092;
+}
+
+.toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.toggle .bar {
+    width: 100%;
+    height: 3px;
+    background-color: black;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+
+@media screen and (max-width: 942px) {
+    .nav-other {
+        gap: 20px;
+    }
+
+    .tabs ul{
+        gap: 25px;
+        font-size: 17px;
+    }
+
+    .nav-socials {
+        gap: 15px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .nav-socials {
+        display: none;
+    }
+
+    .close-sidebar {
+        display: block;
+        font-size: 80px;
+        color: white;
+        background: transparent;
+        border: none;
+        margin-left: auto;
+        padding: 15px 30px;
+        cursor: pointer;
+    }
+
+    .tabs {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 300px;
+        height: 100vh;
+        background-color: #20113D;
+        z-index: 1000000;
+        transform: translateX(-100%);
+        transition: 0.3s;
+    }
+
+    .tabs ul {
+        margin-top: 40px;
+        display: flex;
+        gap: 50px;
+        flex-direction: column;
+        align-items: center;
+        font-size: 18px;
+    }
+
+    .tabs ul li a {
+        color: white;
+    }
+
+    .toggle {
+        display: flex;
+    }
+}
+
+
+/* FOOTER */
+
+footer {
+    margin-top: 150px;
+    background-color: #20113D;
+    width: 100%;
+    color: white;
+    font-family: "Montserrat";
+    padding-bottom: 30px;
+    padding-top: 30px;
+}
+
+.footer-wrap {
+    max-width: 1400px;
+    margin: auto;
+}
+
+.footer-top-column {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-top-column .footer-images {
+    display: flex;
+    gap: 65px;
+}
+
+.footer-top-column .footer-nav ul {
+    display: flex;
+    justify-content: space-around;
+    gap: 50px;
+}
+
+.footer-top-column .footer-nav ul li {
+    list-style-type: none;
+}
+
+.footer-top-column .footer-nav ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+/* DONATE FOOTER BUTTON */
+.footer-button button {
+    background: transparent;
+    padding: 15px 30px;
+    font-size: 18px;
+    color: white;
+    font-weight: bold;
+    border: 1px solid white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.footer-button button:hover {
+    background-color: white;
+    color: #20113D;
+}
+
+/* FOOTER BOTTOM COLUMN */
+
+.footer-line {
+    width: 100%;
+    height: 1px;
+    background-color: white;
+    margin-top: 50px;
+}
+
+.footer-bottom-column {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.footer-bottom-column .footer-copyright {
+    display: flex;
+    gap: 65px;
+    align-items: center;
+}
+
+.footer-bottom-column .footer-socials {
+    display: flex;
+    gap: 40px;
+}
+
+.footer-bottom-column .footer-socials img {
+    cursor: pointer;
+}
