@@ -1,7 +1,3 @@
-const toggleBtn = document.querySelector(".toggle")
-const navTabs = document.querySelector(".tabs")
-const closeBtn1 = document.querySelector(".close-sidebar")
-const navbar = document.querySelector(".navbar")
 const popup = document.getElementById("popup1")
 const closeBtn2 = document.getElementById("close-btn")
 const donationModal = document.getElementById("donate-modal")
@@ -114,10 +110,10 @@ updateFormUI()
 
 
 // popup configs
-setTimeout(() => {
-    popup.classList.add("active")
-    document.body.style.overflow = "hidden"
-}, 2000)
+// setTimeout(() => {
+//     popup.classList.add("active")
+//     document.body.style.overflow = "hidden"
+// }, 2000)
 
 closeBtn2.addEventListener("click", () => {
     popup.classList.remove("active")
@@ -131,14 +127,18 @@ popup.addEventListener("click", (e) => {
     }
 })
 
+// Navbar Logic
 
-// Mobile navbar open and close
-toggleBtn.addEventListener("click", () => {
-    navTabs.classList.toggle("mobile-open")
-    navbar.classList.add("menu-active")
+const hamburger = document.querySelector(".toggle")
+const closeNav = document.querySelector(".close-sidebar")
+const sidebar = document.querySelector(".tabs")
+
+hamburger.addEventListener("click", () => {
+    sidebar.style.transform = "translateX(0)"
+    hamburger.style.display = "none"
 })
 
-closeBtn1.addEventListener("click", () => {
-    navTabs.classList.remove("mobile-open")
-    navbar.classList.remove("menu-active")
+closeNav.addEventListener("click", () => {
+    sidebar.style.transform = "translateX(-100%)"
+    hamburger.style.display = "flex"
 })
