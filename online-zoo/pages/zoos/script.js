@@ -13,3 +13,19 @@ closeNav.addEventListener("click", () => {
     sidebar.style.transform = "translateX(-100%)"
     hamburger.style.display = "flex"
 })
+
+
+// Sidebar
+
+const menu = document.getElementById('menu');
+const toggleBtn = document.querySelector('.menu-toggle');
+
+toggleBtn.addEventListener('click', () => {
+    menu.classList.toggle('menu-open');
+
+    if (menu.classList.contains('menu-open')) {
+        toggleBtn.innerHTML = '&laquo;';
+    } else {
+        toggleBtn.innerHTML = '&raquo;';
+    }
+});

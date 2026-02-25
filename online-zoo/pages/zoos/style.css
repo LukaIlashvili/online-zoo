@@ -24,7 +24,7 @@ body {
 
 /* Navbar */
 
-nav {
+#nav {
     background-color: #F58021;
     width: 100%;
     font-family: "Montserrat";
@@ -266,3 +266,565 @@ footer {
 .footer-bottom-column .footer-socials img {
     cursor: pointer;
 }
+
+/* Responsive Footer */
+
+@media screen and (max-width:1170px) {
+    .footer-wrap {
+        margin: 1%;
+    }
+
+    .footer-top-column .footer-images {
+        gap: 25px;
+    }
+
+    .footer-top-column .footer-nav ul{
+        gap: 15px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .footer-top-column .footer-images {
+        gap: 65px;
+    }
+
+    .footer-top-column .footer-nav ul {
+        gap: 50px;
+    }
+
+    .footer-top-column {
+        flex-direction: column;
+        gap: 50px;
+    }
+
+    .footer-bottom-column {
+        flex-direction: column-reverse;
+        align-items: center;
+        gap: 30px;
+    }
+}
+
+@media screen and (max-width: 465px) {
+    .footer-top-column .footer-images {
+        gap: 40px;
+    }
+
+    .footer-top-column .footer-nav ul {
+        gap: 25px;
+    }
+
+    .footer-bottom-column .footer-copyright {
+        gap: 20px;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .footer-top-column .footer-images {
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .footer-top-column .footer-images .yem {
+        width: 70px;
+        margin: auto;
+    }
+
+    .footer-top-column .footer-nav ul {
+        gap: 10px;
+    }
+
+    .footer-bottom-column .footer-copyright {
+        gap: 10px;
+        flex-direction: column;
+    }
+
+    .footer-top-column .footer-button button{
+        font-size: 15px;
+        width: 100%;
+    }
+}
+
+/* Live Cam/Zoo page */
+
+#live {
+    width: 100%;
+    font-family: "Montserrat";
+}
+
+.live-wrap {
+    padding-top: 54px;
+    max-width: 1400px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.live-header-wrap {
+    width: 70%;
+    display: block;
+    margin-left: auto;
+}
+
+.live-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.live-header h2 {
+    font-size: 2.8vw;
+    color: #00A092;
+}
+
+.live-header button {
+    font-size: 18px;
+    padding: 20px 25px;
+    background-color: #F58021;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.live-header button:hover {
+    background-color: #D26004;
+}
+
+.live-cam {
+    width: 100%;
+    position: relative;
+}
+
+.live-cam .video img {
+    width: 100%;
+    cursor: pointer;
+}
+
+.play img {
+    position: absolute;
+    cursor: pointer;
+    top: 50%;
+    left: 50%;
+    width: 5%;
+}
+
+.play .normal {
+    transform: translate(-50%, -50%);
+    transition: 0.3s;
+}
+
+.play .active {
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.live-cam:hover .play .normal {
+    opacity: 0;
+}
+
+.live-cam:hover .play .active {
+    opacity: 1;
+}
+
+.other-cams {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.other-cams h3 {
+    text-align: center;
+    font-size: 2.15vw;
+}
+
+.other-cams-align {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+}
+
+.other-cams-align img {
+    transition: 0.3s;
+    width: 23%;
+}
+
+.cam-active {
+    transform: translateY(1.5%);
+}
+
+.other-cams-align img:hover {
+    cursor: pointer;
+    scale: 0.9;
+}
+
+.other-cams-align button {
+    font-size: 40px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.other-cams-align button:hover {
+    scale: 1.1;
+}
+
+.donate-now {
+    font-size: 18px;
+    padding: 20px 25px;
+    background-color: #F58021;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    margin-left: auto;
+    display: none;
+}
+
+.donate-now1 {
+    font-size: 18px;
+    padding: 20px 25px;
+    background-color: #F58021;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    margin: auto;
+    width: 98%;
+    flex-direction: column-reverse;
+    margin-top: 50px;
+    display: none;
+}
+
+.donate-now:hover {
+    background-color: #D26004;
+}
+
+/* Responsive cams */
+
+@media screen and (max-width: 1685px) {
+    .live-header-wrap {
+        width: 100%;
+    }
+
+    .live-wrap {
+        margin-right: 0;
+    }
+}
+
+@media screen and (max-width: 1540px) {
+    .live-header-wrap {
+        width: 100%;
+    }
+
+    .live-wrap {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 1090px) {
+    .live-wrap {
+        width: 80%;
+        gap: 1px;
+    }
+
+    
+}
+
+@media screen and (max-width: 870px) {
+    .live-header button {
+        display: none;
+    }
+
+    .live-header h2 {
+        margin: auto;
+        font-size: 5vw;
+    }
+
+    .donate-now {
+        display: block;
+        padding: 5px;
+        font-size: 2vw;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    .other-cams-align button {
+        display: none;
+    }
+
+    .other-cams {
+        gap: 0;
+    }
+
+    .other-cams-align {
+        justify-content: flex-end;
+    }
+
+    .other-cams-align img {
+        width: 30%;
+    }
+}
+
+/* Side Bar */
+
+#menu {
+    width: 8%;
+    background-color: #20113D;
+    font-family: "Montserrat";
+    position: fixed;
+    transition: 0.3s;
+    z-index: 100000;
+    height: 700px;
+    border-bottom: 1px solid white;
+    border-right: 1px solid white;
+}
+
+.live-tag {
+    position: absolute;
+    background-color: #F58021;
+    width: fit-content;
+    border-radius: 0 0 5px;
+    padding: 5px 15px;
+    color: white;
+    align-items: center;
+    display: flex;
+    gap: 5px;
+}
+
+.opened {
+    display: none;
+}
+
+.animal-icon p {
+    display: none;
+}
+
+.line {
+    width: 100%;
+    height: 1px;
+    background-color: white;
+}
+
+.circle-active {
+    background-color: white;
+    width: 100%;
+    padding: 10px;
+    border-radius: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle {
+    background-color: #F58021;
+    width: 100px;
+    padding: 10px;
+    border-radius: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.circle:hover {
+    background-color: white;
+}
+
+.menu-header button {
+    padding: 20px;
+    font-size: 20px;
+    display: block;
+    margin-left: auto;
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.animal-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    margin: 20px 20px;
+    overflow: hidden;
+}
+
+.down-arrow {
+    font-size: 20px;
+    background: transparent;
+    border: none;
+    color: white;
+    display: block;
+    margin: auto;
+    padding: 20px;
+    cursor: pointer;
+}
+
+#menu.menu-open {
+    width: 300px;
+    height: 700px;
+}
+
+#menu.menu-open .live-tag {
+    display: block;
+}
+
+#menu.menu-open .circle,
+#menu.menu-open .circle-active {
+    display: none;
+}
+
+#menu.menu-open .opened,
+#menu.menu-open .animal-icon p {
+    display: block;
+    color: white;
+    font-size: 18px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+#menu.menu-open .opened {
+    width: 135px;
+}
+
+#menu.menu-open .animal-icon {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+
+/* side menu responsive */
+
+@media screen and (max-width: 1625px) {
+    .live-tag {
+        display: none;
+    }
+
+    .menu-header button {
+        width: 100%;
+        font-size: 25px;
+    }
+
+    .circle-active {
+        display: none;
+    }
+
+    .circle {
+        display: none;
+    }
+
+    .animal-icon .opened {
+        display: block;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    #menu {
+        width: 110px;
+    }
+
+    #menu.menu-open .menu-header button {
+        display: flex;
+        justify-content: flex-end;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #menu {
+        width: 79px;
+        height: 450px;
+    }
+
+    .animal-icon .opened {
+        width: 40px;
+        margin: 0;
+    }
+
+    #menu.menu-open {
+        height: 450px;
+    }
+
+    #menu.menu-open .animal-icon .opened {
+        width: 40px;
+    }
+
+    #menu.menu-open .animal-icon p {
+        font-size: 10px;
+    }
+
+    #menu.menu-open .animal-icon {
+        gap: 5px;
+        margin: 8px;
+    }
+
+    .other-cams h3 {
+        font-size: 5vw;
+    }
+}
+
+@media screen and (max-width: 500px) {
+
+    .donate-now {
+        font-size: 3vw;
+    }
+
+    .removable {
+        display: none;
+    }
+
+    .other-cams-align img {
+        width: 45%;
+    }
+}
+
+@media screen and (max-width: 420px) {
+
+    #menu {
+        width: 60px;
+        height: 370px;
+    }
+
+    .animal-icon .opened {
+        width: 18px;
+    }
+
+    .donate-now {
+        display: none;
+    }
+
+    .donate-now1 {
+        display: block;
+    }
+
+}
+
+@media screen and (max-width: 338px) {
+    .donate-now1 {
+        margin-top: 65px;
+    }
+}
+
+
+
+
+
