@@ -8,6 +8,121 @@
     <link rel="shortcut icon" href="../../assets/icons/Favicon.png" type="image/x-icon">
 </head>
 <body>
+    <!-- Donation modal -->
+    <div id="donate-modal" class="popup-overlay donation-overlay">
+        <div class="popup-content donation-content">
+            
+            <div class="modal-header">
+                <h3>MAKE YOUR DONATION</h3>
+                <button type="button" class="close-popup" id="close-donate-steps">&times;</button>
+            </div>
+
+            <form id="donation-steps-form">
+                <div class="form-step active" data-step="1">
+                    <div class="step-body">
+                        <p class="section-title">Donation Information:</p>
+                        <div class="container">
+                        <p class="input-label"><span style="color: #00A092;">*</span> Choose your donation amount:</p>
+                        
+                        <div class="amount-grid">
+                            <label class="amount-card"><input type="radio" name="amount" value="10"> $10</label>
+                            <label class="amount-card"><input type="radio" name="amount" value="20"> $20</label>
+                            <label class="amount-card"><input type="radio" name="amount" value="30"> $30</label>
+                            <label class="amount-card"><input type="radio" name="amount" value="50"> $50</label>
+                            <label class="amount-card"><input type="radio" name="amount" value="80"> $80</label>
+                            <label class="amount-card"><input type="radio" name="amount" value="100"> $100</label>
+                        </div>
+
+                        <div class="other-amount">
+                            <button class="otr-btn">
+                                <span class="full">OTHER AMOUNT</span>
+                                <span class="less">OTHER</span>
+                            </button>
+                            <input type="number" name="custom_amount">
+                        </div>
+
+                        <div class="fav-pet">
+                            <button class="otr-btn1">FOR SPECIAL PET</button>
+                            <select name="pet">
+                                <option value="">Choose your favourite</option>
+                                <option value="panda">Lukas the Panda</option>
+                                <option value="panda">Andy the Lemur</option>
+                                <option value="panda">Glen the Gorilla</option>
+                                <option value="panda">Mike the Alligator</option>
+                                <option value="panda">Sam & Lora the eagles family</option>
+                                <option value="panda">Liz the Koala</option>
+                                <option value="panda">Shake the Lion</option>
+                                </select>
+                        </div>
+
+                        <label class="checkbox-container">
+                            <input type="checkbox"> Make this a monthly recurring gift
+                        </label>
+                    </div>
+                    </div>
+                </div>
+
+                <div class="form-step" data-step="2">
+                    <div class="step-body">
+                        <p class="section-title">Billing Information:</p>
+                        <div class="container">
+                        <div class="input-field">
+                            <label>* Your Name</label>
+                            <input type="text" placeholder="First and last name" required>
+                        </div>
+                        <div class="input-field">
+                            <label>* Your Email Address</label>
+                            <input type="email" placeholder="Enter your email" required>
+                        </div>
+                        <p>You will receive emails from the Online Zoo, including updates and news on the latest discoveries and translations. You can unsubscribe at any time.</p>
+                    </div>
+                    </div>
+                </div>
+
+                <div class="form-step" data-step="3">
+                    <div class="step-body">
+                        <p class="section-title">Payment Information:</p>
+                        <div class="container">
+                        <div class="flex-row">
+                            <div class="input-field date">
+                            <label>* Credit Card Number</label>
+                            <input type="text" placeholder="Card number" required>
+                            </div>
+                            <div class="input-field-small">
+                                <label>* CVV Number</label>
+                                <input type="text" maxlength="3" required>
+                            </div>
+
+                        </div>
+                        <div class="input-field">
+                            <div class="input-field date">
+                                <label>* Expiration Date</label>
+                                <div class="date-inputs">
+                                    <select><option>Month</option></select>
+                                    <select><option>Year</option></select>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <div class="progress-dots">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                    <div class="container1">
+                    <div class="form-nav">
+                        <button type="button" id="back-btn" class="back-text">Back</button>
+                        <button type="button" id="next-btn" class="next-btn">NEXT &rarr;</button>
+                    </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
     <!-- HEADER NAVBAR -->
     <header>
         <nav id="nav">
@@ -114,7 +229,49 @@
                 </div>
             </div>
         </section>
+        
         <button class="donate-now1">DONATE NOW &rarr;</button>
+
+        <section id="quick-donate-section">
+            <div class="quick-donate-wrap">
+                <div class="quick-donate-text">
+                    <h3>MAKE THE BAMBOO DONATION!</h3>
+                    <p>Our process for bamboo donations first starts with a site evaluation. It is important that our team sees where the bamboo is growing, then determining if the bamboo is a species that our animals are currently eating. Thank you for your interest in donating bamboo for our pandas.</p>
+                </div>
+                <div class="quick-donate-btn">
+                    <p>Quick Donate</p>
+                    <div class="donate-btn">
+                        <p>$ DONATION AMOUNT</p>
+                        <button>&rarr;</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="animal-stats">
+            <div class="animal-stats-wrap">
+                <div class="didyouknow">
+                    <h3>DID YOU KNOW?</h3>
+                    <p>Pandas are often seen eating in a relaxed sitting posture, with their hind legs stretched out before them. They may appear sedentary, but they are skilled tree-climbers and efficient swimmers.</p>
+                </div>
+                <div class="animal-stats">
+                    <div class="stats">
+                        <p>Common name: <span>Giant Panda</span></p>
+                        <p>Scientific name: <span>Ailuropoda melanoleuca</span></p>
+                        <p>Type: <span>Herbivore</span></p>
+                        <p>Size: <span>4 to 5 feet</span></p>
+                        <p>Dier: <span>Omnivore</span></p>
+                        <p>Habitat: <span>Forests</span></p>
+                        <p>Range: <span>Eastern Asia</span><a href="../map/index.html"><span class="btn">VIEW MAP &rarr;</span></a></p>
+                    </div>
+                    <div class="animal-pic">
+                        <img src="../../assets/images/pandazoo.png" alt="panda pic">
+                    </div>
+                </div>
+                <div class="animal-description">
+                    <p>Giant pandas are very unusual animals that eat almost exclusively bamboo, which is very low in nutrients. Because of this, they have many unique adaptations for their low-energy lifestyle. Giant pandas are solitary. They have a highly developed sense of smell that males use to avoid each other and to find females for mating in the spring. After a five-month pregnancy, females give birth to a cub or two, though they cannot care for both twins. The blind infants weigh only 5 ounces at birth and cannot crawl until they reach three months of age. They are born white, and develop their much loved coloring later. Habitat loss is the primary threat to this species. Its popularity around the world has helped the giant panda become the focus of successful conservation programs.</p>
+                </div>
+            </div>
+        </section>
     </main>
     <footer>
         <div class="footer-wrap">

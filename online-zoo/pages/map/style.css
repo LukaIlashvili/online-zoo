@@ -440,3 +440,93 @@ footer {
         font-size: 8vw;
     }
 }
+
+
+
+/* Responsive donate modal */
+
+@media screen and (max-width: 620px) {
+    .tabs {
+        width: 50%;
+    }
+
+    .close-sidebar {
+        font-size: 60px;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .amount-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .fav-pet {
+        flex-direction: column;
+    }
+
+    .fav-pet select {
+        height: 40px;
+    }
+
+    .other-amount .otr-btn{
+        width: 50%;
+    }
+
+    .other-amount input {
+        width: 50%;
+    }
+
+    .flex-row {
+        flex-direction: column;
+    }
+
+    .date-inputs {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .flex-row .input-field-small {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:372px) {
+    .amount-grid {
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .other-amount {
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        width: 100%;
+    }
+
+    .other-amount .otr-btn, .other-amount input {
+        width: 100%;
+    }
+
+    .less {
+        display: block;
+    }
+
+    .full {
+        display: none;
+    }
+
+    .fav-pet .otr-btn1 {
+        margin: auto;
+    }
+
+    .modal-footer {
+        flex-direction: column-reverse;
+        gap: 10px;
+    }
+
+    .container1 .form-nav {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+}

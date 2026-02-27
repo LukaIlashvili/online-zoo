@@ -51,6 +51,10 @@ nav {
     display: none;
 }
 
+.less {
+    display: none;
+}
+
 .tabs ul{
     display: flex;
     gap: 48px;
@@ -397,91 +401,81 @@ nav {
     margin-top: 115px;
 }
 
+/* Quick Donate thing */
+
+
 #quick-donate-section {
-    margin: auto;
-    margin-top: 150px;
+    width: 100%;
     background-color: #20113D;
+    font-family: "Montserrat";
     color: white;
+    margin-top: 150px;
+    padding: 50px;
 }
 
-#donate-row {
+.quick-donate-wrap {
     max-width: 1400px;
     margin: auto;
-    height: 221px;
-}
-
-.donate-row-content {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
 }
 
-.donate-text {
-    width: 70%;
-    font-family: "Montserrat";
-    margin-top: 50px;
+.quick-donate-text {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 }
 
-.donate-text h3 {
+.quick-donate-text h3 {
     font-size: 42px;
 }
 
-.donate-text p {
+.quick-donate-text p {
     font-size: 18px;
-    margin-top: 20px;
-    width: 70%;
 }
 
-.quick-donate {
-    width: 30%;
-    font-family: "Montserrat";
+.quick-donate-btn {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    gap: 30px;
+    width: 100%;
+    text-align: center;
 }
 
-.quick-donate p {
+.quick-donate-btn p {
     font-size: 26px;
-    margin-top: 45px;
 }
 
-#donate-popup-btn {
+.donate-btn {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    margin: auto;
     border: 1px solid white;
-    margin-top: 10px;
-    width: 320px;
-    border-radius: 3px;
-    overflow: hidden;
-    user-select: none;
-    cursor: pointer;
-}
-
-#donate-popup-btn p {
-    font-size: 18px;
-    margin: 0;
-    padding-left: 15px;
-    color: white;
-    font-family: 'Montserrat', sans-serif;
-}
-
-#donate-popup-btn span {
-    font-size: 30px;
-    background-color: #F58021;
-    width: 70px;
-    height: 60px;
-    display: flex;
-    justify-content: center;
+    text-align: center;
     align-items: center;
-    color: white;
+    border-radius: 4px;
     cursor: pointer;
-    border-radius: 3px;
 }
 
-#donate-popup-btn:hover span {
+.donate-btn p {
+    font-size: 18px;
+    margin: 15px;
+}
+
+.donate-btn button {
+    font-size: 40px;
+    padding: 10px;
+    background-color: #F58021;
+    border: none;
+    color: white;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.donate-btn:hover button {
     background-color: #D26004;
-    transition: .2s ease-in-out;
 }
 
 /* --- 1. MODAL OVERLAY & CONTAINER --- */
@@ -1395,5 +1389,136 @@ footer {
     .footer-top-column .footer-button button{
         font-size: 15px;
         width: 100%;
+    }
+}
+
+
+/* Responsive donate modal */
+
+@media screen and (max-width: 620px) {
+    .tabs {
+        width: 50%;
+    }
+
+    .close-sidebar {
+        font-size: 60px;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .amount-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .fav-pet {
+        flex-direction: column;
+    }
+
+    .fav-pet select {
+        height: 40px;
+    }
+
+    .other-amount .otr-btn{
+        width: 50%;
+    }
+
+    .other-amount input {
+        width: 50%;
+    }
+
+    .flex-row {
+        flex-direction: column;
+    }
+
+    .date-inputs {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .flex-row .input-field-small {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:372px) {
+    .amount-grid {
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .other-amount {
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        width: 100%;
+    }
+
+    .other-amount .otr-btn, .other-amount input {
+        width: 100%;
+    }
+
+    .less {
+        display: block;
+    }
+
+    .full {
+        display: none;
+    }
+
+    .fav-pet .otr-btn1 {
+        margin: auto;
+    }
+
+    .modal-footer {
+        flex-direction: column-reverse;
+        gap: 10px;
+    }
+
+    .container1 .form-nav {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+}
+
+.less1 {
+    display: none;
+}
+
+/* first timed popup responsive */
+
+@media screen and (max-width: 785px) {
+    .popup-info p {
+        width: 100%;
+    }
+
+    .donation-options {
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        margin: 10px;
+    }
+}
+
+@media screen and (max-width: 580px) {
+    .full1 {
+        display: none;
+    }
+
+    .less1 {
+        display: block;
+    }
+
+    .popup-info h2 {
+        font-size: 35px;
+    }
+
+    .popup-info p {
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 441px) {
+    #popup1 {
+        display: none;
     }
 }

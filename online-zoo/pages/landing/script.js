@@ -11,6 +11,7 @@ const reviewsSection = document.querySelector("#reviews")
 const nextBtn1 = document.querySelector(".review-btns button:last-child")
 const prevBtn1 = document.querySelector(".review-btns button:first-child")
 
+
 nextBtn1.addEventListener("click", () => {
     reviewsSection.classList.add("active-carousel")
 })
@@ -36,84 +37,95 @@ prevArr.addEventListener("click", () => {
     }
 })
 
-const nextBtn = document.getElementById("next-btn")
-const backBtn = document.getElementById("back-btn")
-const steps = document.querySelectorAll(".form-step")
-const dots = document.querySelectorAll(".dot")
+// Donation Modal
 
-let currentStep = 1
+// Donation Modal Selectors
 
-openModalBtn.addEventListener("click", () => {
-    donationModal.classList.add("active")
-    document.body.style.overflow = "hidden"
-})
+// Select ALL donation buttons (Live Header, Middle Page, Footer)
+const openModalBtns = document.querySelectorAll(".live-header button, .donate-now, .donate-now1, .footer-button button, .donate-btn, .choose-btn, .text-content button, .care-card button");
+
+const nextBtn = document.getElementById("next-btn");
+const backBtn = document.getElementById("back-btn");
+const steps = document.querySelectorAll(".form-step");
+const dots = document.querySelectorAll(".dot");
+
+let currentStep = 1;
+
+// Loop through all found buttons and add the listener
+openModalBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+        donationModal.classList.add("active");
+        document.body.style.overflow = "hidden";
+    });
+});
 
 closeBtn.addEventListener("click", () => {
-    donationModal.classList.remove("active")
-    document.body.style.overflow = "auto"
-    resetForm()
-})
+    donationModal.classList.remove("active");
+    document.body.style.overflow = "auto";
+    resetForm();
+});
 
 donationModal.addEventListener("click", (e) => {
     if (e.target === donationModal) {
-        donationModal.classList.remove("active")
-        document.body.style.overflow = "auto"
+        donationModal.classList.remove("active");
+        document.body.style.overflow = "auto";
     }
-})
+});
 
 nextBtn.addEventListener("click", () => {
     if (currentStep < 3) {
-        currentStep++
-        updateFormUI()
+        currentStep++;
+        updateFormUI();
     } else {
-        console.log("donation processed")
-        alert("Thanks for your donation!")
-        donationModal.classList.remove("active")
-        resetForm()
+        console.log("donation processed");
+        alert("Thanks for your donation!");
+        donationModal.classList.remove("active");
+        document.body.style.overflow = "auto"; // Don't forget to restore scroll!
+        resetForm();
     }
-})
+});
 
 backBtn.addEventListener("click", () => {
     if (currentStep > 1) {
-        currentStep--
-        updateFormUI()
+        currentStep--;
+        updateFormUI();
     }
-})
+});
 
 function updateFormUI() {
     steps.forEach(step => {
-        step.classList.toggle("active", parseInt(step.dataset.step) === currentStep)
-    })
+        step.classList.toggle("active", parseInt(step.dataset.step) === currentStep);
+    });
 
     dots.forEach((dot, index) => {
-        dot.classList.toggle("active", (index + 1) === currentStep)
-    })
+        dot.classList.toggle("active", (index + 1) === currentStep);
+    });
 
-    backBtn.style.visibility = (currentStep === 1) ? "hidden" : "visible"
+    backBtn.style.visibility = (currentStep === 1) ? "hidden" : "visible";
 
     if (currentStep === 3) {
-        nextBtn.innerText = "COMPLETE DONATION"
-        nextBtn.style.backgroundColor = "#F58021"
+        nextBtn.innerText = "COMPLETE DONATION";
+        nextBtn.style.backgroundColor = "#F58021";
     } else {
-        nextBtn.innerHTML = "NEXT &rarr;"
-        nextBtn.style.backgroundColor = "#00A092"
+        nextBtn.innerHTML = "NEXT &rarr;";
+        nextBtn.style.backgroundColor = "#00A092";
     }
 }
 
 function resetForm() {
-    currentStep = 1
-    donationForm.reset()
-    updateFormUI()
+    currentStep = 1;
+    if(donationForm) donationForm.reset();
+    updateFormUI();
 }
 
-updateFormUI()
+updateFormUI();
 
 
 // popup configs
-// setTimeout(() => {
-//     popup.classList.add("active")
-//     document.body.style.overflow = "hidden"
-// }, 2000)
+setTimeout(() => {
+    popup.classList.add("active")
+    document.body.style.overflow = "hidden"
+}, 2000)
 
 closeBtn2.addEventListener("click", () => {
     popup.classList.remove("active")
