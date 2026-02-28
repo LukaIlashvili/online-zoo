@@ -663,6 +663,7 @@ footer {
     justify-content: center;
     gap: 50px;
     margin: 20px 20px;
+    cursor: pointer;
     overflow: hidden;
 }
 
@@ -675,6 +676,10 @@ footer {
     margin: auto;
     padding: 20px;
     cursor: pointer;
+}
+
+aside a {
+    text-decoration: none;
 }
 
 #menu.menu-open {
