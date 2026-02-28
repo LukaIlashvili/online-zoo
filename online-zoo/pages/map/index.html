@@ -8,6 +8,153 @@
     <link rel="shortcut icon" href="../../assets/icons/Favicon.png" type="image/x-icon">
 </head>
 <body>
+    <!-- Donation modal -->
+    <div id="donate-modal" class="popup-overlay donation-overlay">
+      <div class="popup-content donation-content">
+        <div class="modal-header">
+          <h3>MAKE YOUR DONATION</h3>
+          <button type="button" class="close-popup" id="close-donate-steps">
+            &times;
+          </button>
+        </div>
+
+        <form id="donation-steps-form">
+          <div class="form-step active" data-step="1">
+            <div class="step-body">
+              <p class="section-title">Donation Information:</p>
+              <div class="container">
+                <p class="input-label">
+                  <span style="color: #00a092">*</span> Choose your donation
+                  amount:
+                </p>
+
+                <div class="amount-grid">
+                  <label class="amount-card"
+                    ><input type="radio" name="amount" value="10" /> $10</label
+                  >
+                  <label class="amount-card"
+                    ><input type="radio" name="amount" value="20" /> $20</label
+                  >
+                  <label class="amount-card"
+                    ><input type="radio" name="amount" value="30" /> $30</label
+                  >
+                  <label class="amount-card"
+                    ><input type="radio" name="amount" value="50" /> $50</label
+                  >
+                  <label class="amount-card"
+                    ><input type="radio" name="amount" value="80" /> $80</label
+                  >
+                  <label class="amount-card"
+                    ><input type="radio" name="amount" value="100" />
+                    $100</label
+                  >
+                </div>
+
+                <div class="other-amount">
+                  <button class="otr-btn">
+                    <span class="full">OTHER AMOUNT</span>
+                    <span class="less">OTHER</span>
+                  </button>
+                  <input type="number" name="custom_amount" />
+                </div>
+
+                <div class="fav-pet">
+                  <button class="otr-btn1">FOR SPECIAL PET</button>
+                  <select name="pet">
+                    <option value="">Choose your favourite</option>
+                    <option value="panda">Lukas the Panda</option>
+                    <option value="panda">Andy the Lemur</option>
+                    <option value="panda">Glen the Gorilla</option>
+                    <option value="panda">Mike the Alligator</option>
+                    <option value="panda">Sam & Lora the eagles family</option>
+                    <option value="panda">Liz the Koala</option>
+                    <option value="panda">Shake the Lion</option>
+                  </select>
+                </div>
+
+                <label class="checkbox-container">
+                  <input type="checkbox" /> Make this a monthly recurring gift
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-step" data-step="2">
+            <div class="step-body">
+              <p class="section-title">Billing Information:</p>
+              <div class="container">
+                <div class="input-field">
+                  <label>* Your Name</label>
+                  <input
+                    type="text"
+                    placeholder="First and last name"
+                    required
+                  />
+                </div>
+                <div class="input-field">
+                  <label>* Your Email Address</label>
+                  <input type="email" placeholder="Enter your email" required />
+                </div>
+                <p>
+                  You will receive emails from the Online Zoo, including updates
+                  and news on the latest discoveries and translations. You can
+                  unsubscribe at any time.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-step" data-step="3">
+            <div class="step-body">
+              <p class="section-title">Payment Information:</p>
+              <div class="container">
+                <div class="flex-row">
+                  <div class="input-field date">
+                    <label>* Credit Card Number</label>
+                    <input type="text" placeholder="Card number" required />
+                  </div>
+                  <div class="input-field-small">
+                    <label>* CVV Number</label>
+                    <input type="text" maxlength="3" required />
+                  </div>
+                </div>
+                <div class="input-field">
+                  <div class="input-field date">
+                    <label>* Expiration Date</label>
+                    <div class="date-inputs">
+                      <select>
+                        <option>Month</option>
+                      </select>
+                      <select>
+                        <option>Year</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <div class="progress-dots">
+              <span class="dot active"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
+            <div class="container1">
+              <div class="form-nav">
+                <button type="button" id="back-btn" class="back-text">
+                  Back
+                </button>
+                <button type="button" id="next-btn" class="next-btn">
+                  NEXT &rarr;
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
     <!-- HEADER NAVBAR -->
     <header>
         <nav>
@@ -47,14 +194,14 @@
                 <div class="map">
                     <img src="../../assets/images/Map.png" alt="World map">
                     <div class="animal-locations">
-                        <a href=""><img src="../../assets/icons/EagleLocation.png" alt="eagle logo" class="eagle"></a>
-                        <a href=""><img src="../../assets/icons/CrocLocation.png" alt="crocodile logo" class="crocodile"></a>
-                        <a href=""><img src="../../assets/icons/LionLocation.png" alt="lion logo" class="lion"></a>
-                        <a href=""><img src="../../assets/icons/GorrliaLocation.png" alt="gorilla logo" class="gorilla"></a>
-                        <a href=""><img src="../../assets/icons/LemurLocation.png" alt="lemur logo" class="lemur"></a>
-                        <a href=""><img src="../../assets/icons/PandaLocation.png" alt="panda logo" class="panda"></a>
-                        <a href=""><img src="../../assets/icons/TigerLocation.png" alt="tiger logo" class="tiger"></a>
-                        <a href=""><img src="../../assets/icons/KoalaLocation.png" alt="koala logo" class="koala"></a>
+                        <a href="../zoos/eagle.html"><img src="../../assets/icons/EagleLocation.png" alt="eagle logo" class="eagle"></a>
+                        <a href="../zoos/panda.html"><img src="../../assets/icons/CrocLocation.png" alt="crocodile logo" class="crocodile"></a>
+                        <a href="../zoos/eagle.html"><img src="../../assets/icons/LionLocation.png" alt="lion logo" class="lion"></a>
+                        <a href="../zoos/gorilla.html"><img src="../../assets/icons/GorrliaLocation.png" alt="gorilla logo" class="gorilla"></a>
+                        <a href="../zoos/lemur.html"><img src="../../assets/icons/LemurLocation.png" alt="lemur logo" class="lemur"></a>
+                        <a href="../zoos/panda.html"><img src="../../assets/icons/PandaLocation.png" alt="panda logo" class="panda"></a>
+                        <a href="../zoos/eagle.html"><img src="../../assets/icons/TigerLocation.png" alt="tiger logo" class="tiger"></a>
+                        <a href="../zoos/gorilla.html"><img src="../../assets/icons/KoalaLocation.png" alt="koala logo" class="koala"></a>
                     </div>
                 </div>
             </div>
