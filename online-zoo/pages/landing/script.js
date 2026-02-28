@@ -37,12 +37,9 @@ prevArr.addEventListener("click", () => {
     }
 })
 
-// Donation Modal
-
 // Donation Modal Selectors
 
-// Select ALL donation buttons (Live Header, Middle Page, Footer)
-const openModalBtns = document.querySelectorAll(".live-header button, .donate-now, .donate-now1, .footer-button button, .donate-btn, .choose-btn, .text-content button, .care-card button");
+const openModalBtns = document.querySelectorAll(".live-header button, .donate-now1, .footer-button button, .donate-btn, .choose-btn, .text-content button, .care-card button");
 
 const nextBtn = document.getElementById("next-btn");
 const backBtn = document.getElementById("back-btn");
@@ -51,7 +48,6 @@ const dots = document.querySelectorAll(".dot");
 
 let currentStep = 1;
 
-// Loop through all found buttons and add the listener
 openModalBtns.forEach(btn => {
     btn.addEventListener("click", () => {
         donationModal.classList.add("active");
@@ -80,7 +76,7 @@ nextBtn.addEventListener("click", () => {
         console.log("donation processed");
         alert("Thanks for your donation!");
         donationModal.classList.remove("active");
-        document.body.style.overflow = "auto"; // Don't forget to restore scroll!
+        document.body.style.overflow = "auto";
         resetForm();
     }
 });
