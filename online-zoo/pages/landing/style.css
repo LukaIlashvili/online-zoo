@@ -1175,12 +1175,29 @@ footer {
     .flex-row .input-field-small {
         width: 100%;
     }
+
+    .modal-header h3 {
+        font-size: 15px;
+    }
 }
 
 @media screen and (max-width:374px) {
     .amount-grid {
         display: grid;
         grid-template-columns: repeat(2,1fr);
+        gap: 5px;
+    }
+
+    .amount-card {
+        padding: 5px;
+    }
+
+    .modal-header {
+        padding: 15px;
+    }
+
+    .modal-header .close-popup {
+        top: 0;
     }
 
     .other-amount {
@@ -1606,7 +1623,7 @@ footer {
     }
 
     #about {
-        padding-top: 100px;
+        padding-top: 150px;
     }
 
     .info1 {
@@ -1668,7 +1685,7 @@ footer {
 
 @media screen and (max-width: 390px) {
     #about {
-        padding-top: 30px;
+        padding-top: 60px;
     }
 }
 
