@@ -1511,7 +1511,7 @@ aside a {
 
 
 
-@media screen and (max-height: 700px) {
+@media screen and (max-height: 800px) {
     .hero-text {
         padding: 0;
     }

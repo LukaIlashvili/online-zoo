@@ -1684,11 +1684,7 @@ footer {
     }
 }
 
-@media screen and (max-width: 390px) {
-    #about {
-        padding-top: 60px;
-    }
-}
+
 
 /* PAY AND FEED WITH RESPONSIVITY */
 
@@ -2351,7 +2347,7 @@ footer {
 
 
 
-@media screen and (max-height: 700px) {
+@media screen and (max-height: 800px) {
     .hero-text {
         padding: 0;
     }
