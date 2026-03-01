@@ -217,6 +217,7 @@ footer {
 .footer-top-column .footer-nav ul li a {
     text-decoration: none;
     color: white;
+    transition: 0.3s;
 }
 
 /* DONATE FOOTER BUTTON */
@@ -1491,4 +1492,19 @@ aside a {
         display: flex;
         flex-direction: column-reverse;
     }
+}
+
+
+
+
+.footer-socials a{
+    transition: 0.3s;
+}
+
+.footer-socials a:hover {
+    scale: 1.1;
+}
+
+.footer-nav ul li a:hover {
+    color: #D2D2D2;
 }

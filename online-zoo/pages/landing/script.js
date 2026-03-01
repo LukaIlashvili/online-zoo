@@ -7,39 +7,10 @@ const donationForm = document.getElementById("donation-steps-form")
 const grid = document.querySelector(".grid-pets")
 const nextArr = document.querySelector(".pet-card-carousel button:nth-child(2)")
 const prevArr = document.querySelector(".pet-card-carousel button:nth-child(1)")
-const reviewsSection = document.querySelector("#reviews")
-const nextBtn1 = document.querySelector(".review-btns button:last-child")
-const prevBtn1 = document.querySelector(".review-btns button:first-child")
-
-
-nextBtn1.addEventListener("click", () => {
-    reviewsSection.classList.add("active-carousel")
-})
-
-prevBtn1.addEventListener("click", () => {
-    reviewsSection.classList.remove("active-carousel")
-})
-
-let currentPosition = 0
-const scrollStep = 220
-
-nextArr.addEventListener("click", () => {
-    if (currentPosition =! 0) {
-        currentPosition = 0
-        grid.style.transform = `translateX(${currentPosition}px)`
-    }
-})
-
-prevArr.addEventListener("click", () => {
-    if (currentPosition == 0) {
-        currentPosition += scrollStep
-        grid.style.transform = `translateX(${currentPosition}px)`
-    }
-})
 
 // Donation Modal Selectors
 
-const openModalBtns = document.querySelectorAll(".live-header button, .donate-now1, .footer-button button, .donate-btn, .choose-btn, .text-content button, .care-card button");
+const openModalBtns = document.querySelectorAll(".live-header button, .donate-now1, .footer-button button, .donate-btn, .choose-btn, .text-content button, .care-card button, .choose-btn1");
 
 const nextBtn = document.getElementById("next-btn");
 const backBtn = document.getElementById("back-btn");
@@ -150,3 +121,108 @@ closeNav.addEventListener("click", () => {
     sidebar.style.transform = "translateX(-100%)"
     hamburger.style.display = "flex"
 })
+
+
+// Pet grid carousel
+
+
+const track = document.querySelector('.animal-care-grid');
+const dots1 = document.querySelectorAll('.dot1');
+
+track.addEventListener('scroll', () => {
+    const firstVisibleCard = track.querySelector('.care-card');
+    const cardWidth = firstVisibleCard.offsetWidth;
+    
+    const totalStep = cardWidth + 20; 
+    
+    const index = Math.round(track.scrollLeft / totalStep);
+    
+    dots1.forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+    });
+});
+
+
+
+// review carousel
+
+const reviewTrack = document.querySelector('.review-cards');
+const reviewDots = document.querySelectorAll('.dot2');
+
+reviewTrack.addEventListener('scroll', () => {
+    const cardWidth = reviewTrack.firstElementChild.offsetWidth;
+    const gap = 10;
+    const scrollStep = cardWidth + gap;
+    
+    const index = Math.round(reviewTrack.scrollLeft / scrollStep);
+    
+    reviewDots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+    });
+});
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const reviewBox = document.querySelector('.review-cards');
+    const moveLeftBtn = document.querySelector('.arrow-navigation button:first-child');
+    const moveRightBtn = document.querySelector('.arrow-navigation button:last-child');
+
+    if (reviewBox && moveLeftBtn && moveRightBtn) {
+        
+
+    moveRightBtn.onclick = function() {
+        const reviewText = document.querySelector('.review-text'); 
+        const windowCenter = window.innerWidth / 2;
+        const gridRect = reviewBox.getBoundingClientRect();
+        const gridCenter = gridRect.width / 2;
+        const distanceToCenter = windowCenter - gridCenter - gridRect.left;
+
+
+        reviewBox.style.transform = `translateX(${distanceToCenter}px)`;
+        
+
+        reviewText.style.opacity = "0";
+        reviewText.style.pointerEvents = "none"; 
+    };
+
+    moveLeftBtn.onclick = function() {
+        const reviewText = document.querySelector('.review-text');
+        reviewBox.style.transform = "translateX(0)";
+        
+
+        reviewText.style.opacity = "1";
+        reviewText.style.pointerEvents = "auto";
+    };
+    }
+});
+
+
+// pet carousel
+
+document.addEventListener('DOMContentLoaded', () => {
+    const finalPetGrid = document.querySelector('.pet-cards');
+    const petControlButtons = document.querySelectorAll('.pet-carousel-arrows button');
+
+    const moveBack = petControlButtons[0];
+    const moveForward = petControlButtons[1];
+
+    moveForward.onclick = () => {
+        const gridRect = finalPetGrid.getBoundingClientRect();
+        const screenW = window.innerWidth;
+        
+        const overflowDistance = gridRect.width - screenW;
+
+        if (overflowDistance > 0) {
+            finalPetGrid.style.transform = `translateX(-${overflowDistance + 40}px)`;
+        }
+    };
+
+    moveBack.onclick = () => {
+        if (window.innerWidth <= 1200) {
+            finalPetGrid.style.transform = "translateX(0)";
+        } else {
+            finalPetGrid.style.transform = "translateX(10%)";
+        }
+    };
+});
