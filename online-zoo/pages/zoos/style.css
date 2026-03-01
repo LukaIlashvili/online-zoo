@@ -924,7 +924,7 @@ aside a {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 10000;
+    z-index: 10000000;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.5s ease;
