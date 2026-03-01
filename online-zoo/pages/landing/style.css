@@ -1179,9 +1179,7 @@ footer {
     .modal-header h3 {
         font-size: 15px;
     }
-}
-
-@media screen and (max-width:374px) {
+    
     .amount-grid {
         display: grid;
         grid-template-columns: repeat(2,1fr);
@@ -1199,6 +1197,9 @@ footer {
     .modal-header .close-popup {
         top: 0;
     }
+}
+
+@media screen and (max-width:374px) {
 
     .other-amount {
         display: grid;
@@ -2344,5 +2345,44 @@ footer {
 
     .pet-carousel-wrap {
         margin-bottom: 30px;
+    }
+}
+
+
+
+
+@media screen and (max-height: 700px) {
+    .hero-text {
+        padding: 0;
+    }
+
+#donate-modal {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        
+        height: auto;
+        max-height: 90vh; 
+        width: 90%;
+        
+        overflow-y: auto;
+        display: block;
+    }
+
+    #donate-modal h2 {
+        margin-top: 10px;
+        font-size: 22px;
+    }
+
+    @media screen and (max-width: 1200px) {
+        #about {
+            padding-top: 300px;
+        }
+    }
+
+    @media screen and (max-width: 420px) {
+        #about {
+            padding-top: 200px;
+        }
     }
 }
