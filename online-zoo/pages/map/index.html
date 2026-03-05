@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Zoo - Map</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="../../assets/icons/Favicon.png" type="image/x-icon">
+</head>
+<body>
+    <!-- Donation modal -->
+    <div id="donate-modal" class="popup-overlay donation-overlay">
+      <div class="popup-content donation-content">
+        <div class="modal-header">
+          <h3>MAKE YOUR DONATION</h3>
+          <button type="button" class="close-popup" id="close-donate-steps">
+            &times;
+          </button>
+        </div>
+
+        <form id="donation-steps-form">
+          <div class="form-step active" data-step="1">
+            <div class="step-body">
+              <p class="section-title">Donation Information:</p>
+              <div class="container">
+                <p class="input-label">
+                  <span style="color: #00a092">*</span> Choose your donation
+                  amount:
+                </p>
+
+                <div class="amount-grid">
+                  <label class="amount-card"
+                    ><input type="radio" name="amount" value="10" /> $10</label
+                  >
+                  <label class="amount-card"
+                    ><input type="radio" name="amount" value="20" /> $20</label
+                  >
+                  <label class="amount-card"
+                    ><input type="radio" name="amount" value="30" /> $30</label
+                  >
+                  <label class="amount-card"
+                    ><input type="radio" name="amount" value="50" /> $50</label
+                  >
+                  <label class="amount-card"
+                    ><input type="radio" name="amount" value="80" /> $80</label
+                  >
+                  <label class="amount-card"
+                    ><input type="radio" name="amount" value="100" />
+                    $100</label
+                  >
+                </div>
+
+                <div class="other-amount">
+                  <button class="otr-btn">
+                    <span class="full">OTHER AMOUNT</span>
+                    <span class="less">OTHER</span>
+                  </button>
+                  <input type="number" name="custom_amount" />
+                </div>
+
+                <div class="fav-pet">
+                  <button class="otr-btn1">FOR SPECIAL PET</button>
+                  <select name="pet">
+                    <option value="">Choose your favourite</option>
+                    <option value="panda">Lukas the Panda</option>
+                    <option value="panda">Andy the Lemur</option>
+                    <option value="panda">Glen the Gorilla</option>
+                    <option value="panda">Mike the Alligator</option>
+                    <option value="panda">Sam & Lora the eagles family</option>
+                    <option value="panda">Liz the Koala</option>
+                    <option value="panda">Shake the Lion</option>
+                  </select>
+                </div>
+
+                <label class="checkbox-container">
+                  <input type="checkbox" /> Make this a monthly recurring gift
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-step" data-step="2">
+            <div class="step-body">
+              <p class="section-title">Billing Information:</p>
+              <div class="container">
+                <div class="input-field">
+                  <label>* Your Name</label>
+                  <input
+                    type="text"
+                    placeholder="First and last name"
+                    required
+                  />
+                </div>
+                <div class="input-field">
+                  <label>* Your Email Address</label>
+                  <input type="email" placeholder="Enter your email" required />
+                </div>
+                <p>
+                  You will receive emails from the Online Zoo, including updates
+                  and news on the latest discoveries and translations. You can
+                  unsubscribe at any time.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-step" data-step="3">
+            <div class="step-body">
+              <p class="section-title">Payment Information:</p>
+              <div class="container">
+                <div class="flex-row">
+                  <div class="input-field date">
+                    <label>* Credit Card Number</label>
+                    <input type="text" placeholder="Card number" required />
+                  </div>
+                  <div class="input-field-small">
+                    <label>* CVV Number</label>
+                    <input type="text" maxlength="3" required />
+                  </div>
+                </div>
+                <div class="input-field">
+                  <div class="input-field date">
+                    <label>* Expiration Date</label>
+                    <div class="date-inputs">
+                      <select>
+                        <option>Month</option>
+                      </select>
+                      <select>
+                        <option>Year</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <div class="progress-dots">
+              <span class="dot active"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
+            <div class="container1">
+              <div class="form-nav">
+                <button type="button" id="back-btn" class="back-text">
+                  Back
+                </button>
+                <button type="button" id="next-btn" class="next-btn">
+                  NEXT &rarr;
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- HEADER NAVBAR -->
+    <header>
+        <nav>
+            <div class="nav-wrap">
+                <div class="logo">
+                    <a href="../landing/index.html"><img src="../../assets/images/Logo.png" alt="website logo"></a>
+                </div>
+                <div class="nav-other">
+                    <div class="tabs">
+                        <button class="close-sidebar">&times;</button>
+                        <ul>
+                            <li><a href="../landing/index.html">ABOUT</a></li>
+                            <li class="active"><a href="../map/index.html">MAP</a></li>
+                            <li><a href="../../pages/zoos/panda.html">ZOOS</a></li>
+                            <li><a href="../contact/index.html">CONTACT US</a></li>
+                            <li><a href="https://www.figma.com/file/lnK11foY8Aoa6oOlDXovVN/Online-ZOO-Project?node-id=0%3A1">DESIGN</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-socials">
+                        <a href="https://www.youtube.com/c/RSschool"><img src="../../assets/icons/YouTube.png" alt="youtube logo"></a>
+                        <a href="https://www.instagram.com/rsschool_en/?hl=en"><img src="../../assets/icons/Instagram.png" alt="instagram logo"></a>
+                        <a href="https://www.facebook.com/rsschoolEN/"><img src="../../assets/icons/Facebook.png" alt="facebook logo"></a>
+                    </div>
+                    <button class="toggle">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section id="map">
+            <h2>FIND WHERE ARE <br>THE ANIMALS LIVE</h2>
+            <div class="map-wrap">
+                <div class="map">
+                    <img src="../../assets/images/Map.png" alt="World map">
+                    <div class="animal-locations">
+                        <a href="../zoos/eagle.html"><img src="../../assets/icons/EagleLocation.png" alt="eagle logo" class="eagle"></a>
+                        <a href="../zoos/panda.html"><img src="../../assets/icons/CrocLocation.png" alt="crocodile logo" class="crocodile"></a>
+                        <a href="../zoos/eagle.html"><img src="../../assets/icons/LionLocation.png" alt="lion logo" class="lion"></a>
+                        <a href="../zoos/gorilla.html"><img src="../../assets/icons/GorrliaLocation.png" alt="gorilla logo" class="gorilla"></a>
+                        <a href="../zoos/lemur.html"><img src="../../assets/icons/LemurLocation.png" alt="lemur logo" class="lemur"></a>
+                        <a href="../zoos/panda.html"><img src="../../assets/icons/PandaLocation.png" alt="panda logo" class="panda"></a>
+                        <a href="../zoos/eagle.html"><img src="../../assets/icons/TigerLocation.png" alt="tiger logo" class="tiger"></a>
+                        <a href="../zoos/gorilla.html"><img src="../../assets/icons/KoalaLocation.png" alt="koala logo" class="koala"></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-wrap">
+            <div class="footer-top-column">
+                <div class="footer-images">
+                    <img src="../../assets/images/LogoWhite.png" alt="online zoo logo">
+                    <img class="yem" src="../../assets/images/YemDigital.png" alt="yem digital">
+                    <img src="../../assets/images/rs_school_jslogo.png" alt="rs school logo">
+                </div>
+                <div class="footer-nav">
+                    <ul>
+                        <li><a href="../landing/index.html">ABOUT</a></li>
+                        <li><a href="../map/index.html">MAP</a></li>
+                        <li><a href="../zoos/panda.html">ZOOS</a></li>
+                        <li><a href="../contact/index.html">CONTACT US</a></li>
+                    </ul>
+                </div>
+                <div class="footer-button">
+                    <button>DONATE FOR VOLUNTEERS &rarr;</button>
+                </div>
+            </div>
+            <div class="footer-line"></div>
+            <div class="footer-bottom-column">
+                <div class="footer-copyright">
+                    <p>&copy; 2021 DinaK</p>
+                    <p>&copy; Yem Digital</p>
+                    <p>&copy; RSSchool</p>
+                </div>
+                <div class="footer-socials">
+                    <a href="https://www.youtube.com/c/RSschool"><img src="../../assets/icons/YouTube.png" alt="youtube logo"></a>
+                    <a href="https://www.instagram.com/rsschool_en/?hl=en"><img src="../../assets/icons/Instagram.png" alt="instagram logo"></a>
+                    <a href="https://www.facebook.com/rsschoolEN/"><img src="../../assets/icons/Facebook.png" alt="facebook logo"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
