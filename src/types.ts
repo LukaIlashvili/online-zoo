@@ -8,9 +8,11 @@ export interface Pet {
 
 // Review Section
 export interface Feedback {
-    id: string;
+    id: number;
+    city: string;
+    month: string;
+    year: string;
+    text: string;
     name: string;
-    feedback: string;
-    author: string;
 }
 

@@ -1,6 +1,6 @@
 import "./types";
 import petImages from "./constants";
-import type { Pet } from "./types";
+import type { Feedback, Pet } from "./types";
 
 
 async function getAnimals(): Promise<void> {
@@ -54,7 +54,32 @@ async function getAnimals(): Promise<void> {
     }
 }
 
+async function getReviews(): Promise<void> {
+    const container = document.querySelector(".review-wrap") as HTMLElement;
+    const arrows = document.querySelector(".arrow-navigation") as HTMLElement;
+
+
+    try {
+        console.log('Fetching reviews...');
+        const response = await fetch("https://vsqsnqnxkh.execute-api.eu-central-1.amazonaws.com/prod/feedback");
+
+        if (!response.ok) {
+            throw new Error("Something went wrong. Please, refresh the page");
+        }
+
+        const Result: { data: Feedback[] } = await response.json();
+        const reviews: Feedback[] = Result.data;
+
+        console.log('Reviews fetched:', reviews[0]?.name);
+    } catch (error) {
+        console.log("error", (error as Error).message);
+        container.innerHTML = `<p class="error-message">${(error as Error).message}</p>`;
+        arrows.style.display = "none";
+    }
+}
+
 getAnimals()
+getReviews()
 
 
 
