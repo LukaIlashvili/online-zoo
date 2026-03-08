@@ -1861,14 +1861,18 @@ footer {
 .review-wrap {
     position: relative;
     z-index: 2;
-    width: 100%;
+    max-width: 1400px;
+    margin: auto;
     display: flex;
+    flex-direction: column;
 }
 
 .review-text {
-    margin-left: 13%;
+    margin: auto;
     max-width: 600px;
     transition: 0.3s;
+    margin-bottom: 60px;
+    text-align: center;
 }
 
 .review-text h2 {
@@ -1887,20 +1891,24 @@ footer {
 }
 
 .review-cards {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    width: max-content;
+    flex-wrap: nowrap;
     transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .review-card {
     background-color: white;
     color: black;
-    margin: 5px;
     padding: 20px;
     border-radius: 4px;
     display: flex;
     flex-direction: column;
     gap: 30px;
+    width: 400px;
+    flex-shrink: 0;
 }
 
 .review-head {
@@ -1975,15 +1983,6 @@ footer {
         transform: translateY(-150px);
     }
 
-    .review-text {
-        margin: 1%;
-    }
-
-    .review-cards {
-        width: 90%;
-        margin-left: auto;
-    }
-
     .arrow-navigation {
         margin-top: 0px;
         transform: translateY(-100px);
@@ -2028,9 +2027,6 @@ footer {
 }
 
 @media screen and (max-width: 800px) {
-    .arrow-navigation {
-        display: none;
-    }
 
     .feedback {
         transform: translateY(0);
@@ -2042,26 +2038,9 @@ footer {
         width: 100%;
     }
 
-    .review-text {
-        margin: 1%;
-    }
-
-    .review-cards {
-        display: flex;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        gap: 10px;
-        scrollbar-width: none;
-        -ms-overflow-style: none;
-    }
 
     .review-cards::-webkit-scrollbar {
         display: none;
-    }
-
-    .review-card {
-        flex: 0 0 450px;
-        scroll-snap-align: center;
     }
 }
 
@@ -2070,6 +2049,20 @@ footer {
         margin: auto;
         text-align: center;
         margin: 1%;
+    }
+
+    .review-cards {
+        width: 100%;
+        margin: 0;
+    }
+
+    .review-card {
+        width: 100%;
+    }
+
+    .arrow-navigation {
+        justify-content: center;
+        margin-top: 20px;
     }
 
     .review-text h2 {
@@ -2103,11 +2096,6 @@ footer {
     .dot2.active {
         background-color: white;
         transform: scale(1.2);
-    }
-
-    .review-card {
-        flex: 0 0 90%; 
-        margin: 0 5%;
     }
 }
 

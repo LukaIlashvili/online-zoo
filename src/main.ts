@@ -57,6 +57,13 @@ async function getAnimals(): Promise<void> {
 async function getReviews(): Promise<void> {
     const container = document.querySelector(".review-wrap") as HTMLElement;
     const arrows = document.querySelector(".arrow-navigation") as HTMLElement;
+    const reviewCards = document.querySelector(".review-cards") as HTMLElement;
+
+    reviewCards.innerHTML = `
+        <div class="loader-container">
+            <div class="loader"></div>
+        </div>
+    `;
 
 
     try {
@@ -67,8 +74,27 @@ async function getReviews(): Promise<void> {
             throw new Error("Something went wrong. Please, refresh the page");
         }
 
+        reviewCards.innerHTML = "";
+
         const Result: { data: Feedback[] } = await response.json();
         const reviews: Feedback[] = Result.data;
+
+        reviews.forEach((review: Feedback) => {
+            const reviewCard = document.createElement("div");
+
+            reviewCard.className = "review-card";
+            reviewCard.innerHTML = `
+                <div class="quote-mark">
+                    <img src="../assets/icons/“.png" alt="Quote Mark">
+                </div>
+                <div class="reviews">
+                    <p class="review-head">${review.city}, ${review.month} ${review.year}</p>
+                    <p>"${review.text}"</p>
+                    <p class="author">${review.name}</p>
+                </div>
+            `;
+            document.querySelector(".review-cards")?.appendChild(reviewCard);
+        });
 
         console.log('Reviews fetched:', reviews[0]?.name);
     } catch (error) {

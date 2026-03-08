@@ -146,58 +146,52 @@ track.addEventListener('scroll', () => {
 
 // review carousel
 
-const reviewTrack = document.querySelector('.review-cards') as HTMLElement;
-const reviewDots = document.querySelectorAll('.dot2');
+let currentReviewIndex = 0;
 
-reviewTrack.addEventListener('scroll', (e: Event): void => {
-    const target = e.target as HTMLElement;
-    const firstChild = target.firstElementChild as HTMLElement;
-    const cardWidth: number = firstChild ? firstChild.offsetWidth : 0;
-    const gap = 10;
-    const scrollStep = cardWidth + gap;
-    
-    const index = Math.round(target.scrollLeft / scrollStep);
-    
-    reviewDots.forEach((dot, i) => {
-        dot.classList.toggle('active', i === index);
-    });
-});
-
-
-
-document.addEventListener('DOMContentLoaded', () => {
-    const reviewBox = document.querySelector('.review-cards') as HTMLElement;
+function initializeReviewSlider(totalReviews: number) {
+    const reviewTrack = document.querySelector('.review-cards') as HTMLElement;
     const moveLeftBtn = document.querySelector('.arrow-navigation button:first-child') as HTMLElement;
     const moveRightBtn = document.querySelector('.arrow-navigation button:last-child') as HTMLElement;
 
-    if (reviewBox && moveLeftBtn && moveRightBtn) {
+    if (!reviewTrack || !moveLeftBtn || !moveRightBtn) return;
+
+    // We add + 1 here to create that "empty space" press after the last card
+    const totalSlots = totalReviews + 1; 
+
+    function updateReviewPosition() {
+        const firstCard = reviewTrack.firstElementChild as HTMLElement;
+        if (!firstCard) return;
+
+        // Get exact card width
+        const cardWidth = firstCard.getBoundingClientRect().width;
         
-
-    moveRightBtn.onclick = function() {
-        const reviewText = document.querySelector('.review-text') as HTMLElement; 
-        const windowCenter = window.innerWidth / 2;
-        const gridRect = reviewBox.getBoundingClientRect();
-        const gridCenter = gridRect.width / 2;
-        const distanceToCenter = windowCenter - gridCenter - gridRect.left;
-
-
-        reviewBox.style.transform = `translateX(${distanceToCenter}px)`;
+        // Get the actual gap between cards from CSS
+        const trackStyle = window.getComputedStyle(reviewTrack);
+        const gap = parseFloat(trackStyle.columnGap) || 0;
         
-
-        reviewText.style.opacity = "0";
-        reviewText.style.pointerEvents = "none"; 
-    };
-
-    moveLeftBtn.onclick = function() {
-        const reviewText = document.querySelector('.review-text') as HTMLElement;
-        reviewBox.style.transform = "translateX(0)";
+        // The movement distance is exactly one card plus one gap
+        const stepSize = cardWidth + gap;
         
-
-        reviewText.style.opacity = "1";
-        reviewText.style.pointerEvents = "auto";
-    };
+        // Move the track
+        reviewTrack.style.transform = `translateX(-${currentReviewIndex * stepSize}px)`;
     }
-});
+
+    moveRightBtn.onclick = () => {
+        // Now loops back to 0 only after hitting the empty slot
+        currentReviewIndex = (currentReviewIndex + 1) % totalSlots;
+        updateReviewPosition();
+    };
+
+    moveLeftBtn.onclick = () => {
+        currentReviewIndex = (currentReviewIndex - 1 + totalSlots) % totalSlots;
+        updateReviewPosition();
+    };
+
+    window.addEventListener('resize', updateReviewPosition);
+    updateReviewPosition();
+}
+
+initializeReviewSlider(24)
 
 
 // pet carousel
@@ -214,7 +208,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentIndex = 0;
     const totalPets = 28;
 
-    function updatePosition() {
+function updatePosition() {
         const firstCard = finalPetGrid.querySelector('.pet-card') as HTMLElement;
         if (!firstCard) return;
 
