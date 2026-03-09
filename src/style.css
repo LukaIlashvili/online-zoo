@@ -81,11 +81,14 @@ nav {
 
 .nav-socials {
     display: flex;
+    flex-direction: row;
     gap: 30px;
+    align-items: center;
 }
 
 .nav-socials img {
     transition: 0.2s ease-in-out;
+    align-items: center;
 }
 
 .nav-socials img:hover {
@@ -118,7 +121,7 @@ nav {
 }
 
 
-@media screen and (max-width: 942px) {
+@media screen and (max-width: 1140px) {
     .nav-other {
         gap: 20px;
     }
@@ -133,8 +136,8 @@ nav {
     }
 }
 
-@media screen and (max-width: 768px) {
-    .nav-socials {
+@media screen and (max-width: 944px) {
+    .nav-socials a{
         display: none;
     }
 
@@ -176,6 +179,10 @@ nav {
 
     .toggle {
         display: flex;
+    }
+
+    .user-trigger {
+        display: flex !important;
     }
 }
 
@@ -2396,4 +2403,204 @@ footer {
 @keyframes rotation {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+
+.user-trigger {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    transform: translateY(-2px);
+    cursor: pointer;
+}
+
+.user-icon-wrapper {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: rgb(255, 210, 158);
+    transition: 0.2s ease;
+    color: #333;
+}
+
+.user-trigger span {
+    transition: 0.2s ease;
+}
+
+
+.user-trigger:hover .user-icon-wrapper {
+    color: #00A092;
+    background-color: rgb(255, 255, 255);
+}
+
+.user-trigger:hover span {
+    color: #00A092;
+}
+
+.user-icon-svg {
+    width: 24px;
+    height: 24px;
+}
+
+
+/* User Section below navbar for smaller devices */
+
+#user-section {
+    display: none;
+    width: 100%;
+    background-color: #20113D;
+    padding: 10px;
+    color: white;
+    font-family: "Montserrat";
+    flex-direction: row;
+}
+
+@media screen and (max-width: 500px) {
+    nav .user-trigger {
+        display: none !important;
+    }
+
+    #user-section {
+        display: flex;
+    }
+
+    #user-section .user-trigger {
+        margin-left: 1%;
+    }
+
+    #user-section .user-trigger .user-icon-wrapper {
+        background-color: white;
+    }
+}
+
+/* Registration / Log in popup and overlay */
+
+.overlay-registration {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 100000;
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+#register-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 4px;
+    z-index: 100001;
+    width: 600px;
+    height: auto;
+    font-family: "Montserrat";
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-50%, -45%) scale(0.95); 
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    pointer-events: none;
+}
+
+.overlay-registration.active, 
+#register-popup.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+#register-popup.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.register-wrap {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.register-head {
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    background-color: #F58021;
+    padding: 10px;
+    align-items: center;
+}
+
+.register-head button {
+    font-size: 60px;
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.register-head button:hover {
+    color: rgb(228, 228, 228)
+}
+
+.register-content {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 30px;
+    padding: 10px;
+}
+
+.register-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.register-buttons a {
+    text-align: center;
+    flex-grow: 1;
+    text-decoration: none;
+    color: white;
+    background-color: #00A092;
+    padding: 15px 30px;
+    border-radius: 4px;
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+.register-desc p {
+    font-size: 18px;
+}
+
+.register-buttons a:hover {
+    background-color: #05786E;
+}
+
+@media screen and (max-width: 640px) {
+    #register-popup {
+        width: 95%;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .register-head h2 {
+        font-size: 20px;
+    }
+
+    .register-head button {
+        font-size: 40px;
+    }
+
+    .register-desc p {
+        font-size: 16px;
+    }
 }

@@ -89,10 +89,10 @@ updateFormUI();
 
 
 // popup configs
-setTimeout(() => {
-    popup.classList.add("active")
-    document.body.style.overflow = "hidden"
-}, 2000)
+// setTimeout(() => {
+//     popup.classList.add("active")
+//     document.body.style.overflow = "hidden"
+// }, 2000)
 
 closeBtn2.addEventListener("click", () => {
     popup.classList.remove("active")
@@ -233,3 +233,31 @@ function updatePosition() {
 
     window.onresize = updatePosition;
 });
+
+// REGISTRATION POPUPS
+
+const userLogin = document.querySelectorAll(".user-trigger") as NodeListOf<HTMLElement>;
+const registrationOverlay = document.querySelector(".overlay-registration") as HTMLElement;
+const registrationPopup = document.getElementById("register-popup") as HTMLElement;
+const closeRegistrationBtn = document.querySelector(".close-registration") as HTMLElement;
+
+
+
+userLogin.forEach((btn) => {
+    btn.addEventListener("click", () => {
+        registrationOverlay.classList.add("active")
+        registrationPopup.classList.add("active")
+        document.body.style.overflow = "hidden"
+})
+})
+
+closeRegistrationBtn.addEventListener("click", () => {
+    registrationOverlay.classList.remove("active")
+    registrationPopup.classList.remove("active")
+    document.body.style.overflow = "auto"
+})
+
+
+registrationOverlay.addEventListener("click", () => {
+    closeRegistrationBtn.click();
+})

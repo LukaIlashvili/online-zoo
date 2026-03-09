@@ -8,6 +8,7 @@
     <link rel="shortcut icon" href="../../assets/icons/Favicon.png" type="image/x-icon">
 </head>
 <body>
+    <div class="overlay-registration"></div>
     <!-- Pop up window -->
     <div id="popup1" class="popup-overlay">
         <div class="popup-content">
@@ -150,6 +151,24 @@
             </form>
         </div>
     </div>
+    <!-- Registration / Log in pop up -->
+     <div id="register-popup">
+        <div class="register-wrap">
+            <div class="register-head">
+                <h2>JOIN US AT ONLINE ZOO</h2>
+                <button class="close-registration">&times;</button>
+            </div>
+            <div class="register-content">
+                <div class="register-buttons">
+                    <a href="#" class="register-button">Log In</a>
+                    <a href="#" class="register-button">Sign Up</a>
+                </div>
+                <div class="register-desc">
+                    <p>By creating an account, you can save your favorite animals, receive updates on their well-being, and get exclusive access to behind-the-scenes content. Join our community of animal lovers and make a difference in the lives of our beloved creatures!</p>
+                </div>
+            </div>
+        </div>
+     </div>
     <!-- Header -->
     <header>
         <nav>
@@ -172,6 +191,15 @@
                         <a href="https://www.youtube.com/c/RSschool"><img src="../../assets/icons/YouTube.png" alt="youtube logo"></a>
                         <a href="https://www.instagram.com/rsschool_en/?hl=en"><img src="../../assets/icons/Instagram.png" alt="instagram logo"></a>
                         <a href="https://www.facebook.com/rsschoolEN/"><img src="../../assets/icons/Facebook.png" alt="facebook logo"></a>
+                        <div class="user-trigger">
+                            <div class="user-icon-wrapper">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="user-icon-svg">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                            </div>
+                            <span>Sign in</span>
+                        </div>
                     </div>
                     <button class="toggle">
                         <span class="bar"></span>
@@ -181,6 +209,17 @@
                 </div>
             </div>
         </nav>
+        <div id="user-section">
+            <div class="user-trigger">
+                <div class="user-icon-wrapper">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="user-icon-svg">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </div>
+                <span>Sign in</span>
+            </div>
+        </div>
     </header>
     <main>
         <section id="hero">
