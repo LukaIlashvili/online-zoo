@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Online Zoo</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="shortcut icon"
+      href="/public/assets/icons/Favicon.png"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
+    <div class="overlay-registration"></div>
+    <!-- Pop up window -->
+    <div id="popup1" class="popup-overlay">
+      <div class="popup-content">
+        <button class="close-popup" id="close-btn">&times;</button>
+
+        <div class="popup-image">
+          <img src="/public/assets/images/popup1.png" alt="Hand holding paw" />
+        </div>
+
+        <div class="popup-info">
+          <h2>
+            TOGETHER WE CARE, <br />
+            SAVE AND PROTECT!
+          </h2>
+          <p>
+            Your most generous gift not only cares for countless animals, but it
+            also offers hope and a vital lifeline to the world’s most endangered
+            wildlife relying on us to survive.
+          </p>
+
+          <div class="donation-options">
+            <button class="amount-btn">$20</button>
+            <button class="amount-btn">$30</button>
+            <button class="amount-btn">$50</button>
+            <button class="amount-btn">$80</button>
+            <button class="amount-btn">$100</button>
+            <button class="amount-btn other">
+              <span class="full1">OTHER AMOUNT</span>
+              <span class="less1">OTHER</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Donation windows -->
+    <div id="donate-modal" class="popup-overlay donation-overlay">
+      <div class="popup-content donation-content">
+        <div class="modal-header">
+          <h3>MAKE YOUR DONATION</h3>
+          <button type="button" class="close-popup" id="close-donate-steps">
+            &times;
+          </button>
+        </div>
+
+        <form id="donation-steps-form">
+          <div class="form-step active" data-step="1">
+            <div class="step-body">
+              <p class="section-title">Donation Information:</p>
+              <div class="container">
+                <p class="input-label">
+                  <span style="color: #00a092">*</span> Choose your donation
+                  amount:
+                </p>
+
+                <div class="amount-grid">
+                  <label class="amount-card"
+                    ><input type="radio" name="amount" value="10" /> $10</label
+                  >
+                  <label class="amount-card"
+                    ><input type="radio" name="amount" value="20" /> $20</label
+                  >
+                  <label class="amount-card"
+                    ><input type="radio" name="amount" value="30" /> $30</label
+                  >
+                  <label class="amount-card"
+                    ><input type="radio" name="amount" value="50" /> $50</label
+                  >
+                  <label class="amount-card"
+                    ><input type="radio" name="amount" value="80" /> $80</label
+                  >
+                  <label class="amount-card"
+                    ><input type="radio" name="amount" value="100" />
+                    $100</label
+                  >
+                </div>
+
+                <div class="other-amount">
+                  <button class="otr-btn">
+                    <span class="full">OTHER AMOUNT</span>
+                    <span class="less">OTHER</span>
+                  </button>
+                  <input type="number" name="custom_amount" />
+                </div>
+
+                <div class="fav-pet">
+                  <button class="otr-btn1">FOR SPECIAL PET</button>
+                  <select name="pet">
+                    <option value="">Choose your favourite</option>
+                    <option value="panda">Lukas the Panda</option>
+                    <option value="panda">Andy the Lemur</option>
+                    <option value="panda">Glen the Gorilla</option>
+                    <option value="panda">Mike the Alligator</option>
+                    <option value="panda">Sam & Lora the eagles family</option>
+                    <option value="panda">Liz the Koala</option>
+                    <option value="panda">Shake the Lion</option>
+                  </select>
+                </div>
+
+                <label class="checkbox-container">
+                  <input type="checkbox" /> Make this a monthly recurring gift
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-step" data-step="2">
+            <div class="step-body">
+              <p class="section-title">Billing Information:</p>
+              <div class="container">
+                <div class="input-field">
+                  <label>* Your Name</label>
+                  <input
+                    type="text"
+                    placeholder="First and last name"
+                    required
+                  />
+                </div>
+                <div class="input-field">
+                  <label>* Your Email Address</label>
+                  <input type="email" placeholder="Enter your email" required />
+                </div>
+                <p>
+                  You will receive emails from the Online Zoo, including updates
+                  and news on the latest discoveries and translations. You can
+                  unsubscribe at any time.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-step" data-step="3">
+            <div class="step-body">
+              <p class="section-title">Payment Information:</p>
+              <div class="container">
+                <div class="flex-row">
+                  <div class="input-field date">
+                    <label>* Credit Card Number</label>
+                    <input type="text" placeholder="Card number" required />
+                  </div>
+                  <div class="input-field-small">
+                    <label>* CVV Number</label>
+                    <input type="text" maxlength="3" required />
+                  </div>
+                </div>
+                <div class="input-field">
+                  <div class="input-field date">
+                    <label>* Expiration Date</label>
+                    <div class="date-inputs">
+                      <select>
+                        <option>Month</option>
+                      </select>
+                      <select>
+                        <option>Year</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <div class="progress-dots">
+              <span class="dot active"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
+            <div class="container1">
+              <div class="form-nav">
+                <button type="button" id="back-btn" class="back-text">
+                  Back
+                </button>
+                <button type="button" id="next-btn" class="next-btn">
+                  NEXT &rarr;
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- Registration / Log in pop up -->
+    <div id="register-popup">
+      <div class="register-wrap">
+        <div class="register-head">
+          <h2>JOIN US AT ONLINE ZOO</h2>
+          <button class="close-registration">&times;</button>
+        </div>
+        <div class="register-content">
+          <div class="register-buttons">
+            <a href="#" class="register-button">Log In</a>
+            <a href="#" class="register-button">Sign Up</a>
+          </div>
+          <div class="register-desc">
+            <p>
+              By creating an account, you can save your favorite animals,
+              receive updates on their well-being, and get exclusive access to
+              behind-the-scenes content. Join our community of animal lovers and
+              make a difference in the lives of our beloved creatures!
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Header -->
+    <header>
+      <nav>
+        <div class="nav-wrap">
+          <div class="logo">
+            <a href="index.html"
+              ><img src="../../../public/assets/images/Logo.png" alt="website logo"
+            /></a>
+          </div>
+          <div class="nav-other">
+            <div class="tabs">
+              <button class="close-sidebar">&times;</button>
+              <ul>
+                <li class="active"><a href="#">ABOUT</a></li>
+                <li><a href="../map/index.html">MAP</a></li>
+                <li><a href="../../pages/zoos/panda.html">ZOOS</a></li>
+                <li><a href="../contact/index.html">CONTACT US</a></li>
+                <li>
+                  <a
+                    href="https://www.figma.com/file/lnK11foY8Aoa6oOlDXovVN/Online-ZOO-Project?node-id=0%3A1"
+                    >DESIGN</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="nav-socials">
+              <a href="https://www.youtube.com/c/RSschool"
+                ><img src="../../../public/assets/icons/YouTube.png" alt="youtube logo"
+              /></a>
+              <a href="https://www.instagram.com/rsschool_en/?hl=en"
+                ><img
+                  src="../../../public/assets/icons/Instagram.png"
+                  alt="instagram logo"
+              /></a>
+              <a href="https://www.facebook.com/rsschoolEN/"
+                ><img src="../../../public/assets/icons/Facebook.png" alt="facebook logo"
+              /></a>
+              <div class="user-trigger">
+                <div class="user-icon-wrapper">
+                  <svg
+                    width="40"
+                    height="40"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="user-icon-svg"
+                  >
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                  </svg>
+                </div>
+                <span>Sign in</span>
+              </div>
+            </div>
+            <button class="toggle">
+              <span class="bar"></span>
+              <span class="bar"></span>
+              <span class="bar"></span>
+            </button>
+          </div>
+        </div>
+      </nav>
+      <div id="user-section">
+        <div class="user-trigger">
+          <div class="user-icon-wrapper">
+            <svg
+              width="40"
+              height="40"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="user-icon-svg"
+            >
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </div>
+          <span>Sign in</span>
+        </div>
+      </div>
+    </header>
+    <main>
+        <div class="login-overlay"></div>
+        <section id="login">
+                <div class="login-head">
+                    <h1>JOIN US AT ONLINE ZOO</h1>
+                </div>
+                <div class="login-wrap">
+                    <div class="login-text">
+                        <h2>Log In</h2>
+                    </div>
+                    <div class="login-inputs">
+                        <input type="text" name="login" id="login-form" minlength="3" maxlength="12" required placeholder="Enter login">
+                        <!-- <p id="login-hint" class="hint-text">3-12 chars, start with a letter (English only)</p> -->
+                        
+                        <input type="password" name="password" id="password-form" minlength="6" maxlength="20" required placeholder="Enter password">
+                        <!-- <p id="pass-hint" class="hint-text">Min 6 chars, include a special character</p> -->
+                        
+                        <button id="login-btn">Log In</button>
+                    </div>
+                    <div id="line"></div>
+                    <div class="login-desc">
+                        <p>Not a member yet?</p> <button id="register-button">Sign Up</button>
+                    </div>
+                </div>
+        </section>
+    </main>
+    <footer>
+      <div class="footer-wrap">
+        <div class="footer-top-column">
+          <div class="footer-images">
+            <img
+              src="../../../public/assets/images/LogoWhite.png"
+              alt="online zoo logo"
+            />
+            <img
+              class="yem"
+              src="../../../public/assets/images/YemDigital.png"
+              alt="yem digital"
+            />
+            <img
+              src="../../../public/assets/images/rs_school_jslogo.png"
+              alt="rs school logo"
+            />
+          </div>
+          <div class="footer-nav">
+            <ul>
+              <li><a href="../../../index.html">ABOUT</a></li>
+              <li><a href="../map/index.html">MAP</a></li>
+              <li><a href="../zoos/panda.html">ZOOS</a></li>
+              <li><a href="../contact/index.html">CONTACT US</a></li>
+            </ul>
+          </div>
+          <div class="footer-button">
+            <button>DONATE FOR VOLUNTEERS &rarr;</button>
+          </div>
+        </div>
+        <div class="footer-line"></div>
+        <div class="footer-bottom-column">
+          <div class="footer-copyright">
+            <p>&copy; 2021 DinaK</p>
+            <p>&copy; Yem Digital</p>
+            <p>&copy; RSSchool</p>
+          </div>
+          <div class="footer-socials">
+            <a href="https://www.youtube.com/c/RSschool"
+              ><img src="../../../public/assets/icons/YouTube.png" alt="youtube logo"
+            /></a>
+            <a href="https://www.instagram.com/rsschool_en/?hl=en"
+              ><img src="../../../public/assets/icons/Instagram.png" alt="instagram logo"
+            /></a>
+            <a href="https://www.facebook.com/rsschoolEN/"
+              ><img src="../../../public/assets/icons/Facebook.png" alt="facebook logo"
+            /></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script type="module" src="./script.ts"></script>
+  </body>
+</html>

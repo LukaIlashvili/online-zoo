@@ -108,6 +108,15 @@ getAnimals()
 getReviews()
 
 
+// Registration and Sign in
+
+let isLoggedIn: boolean = false
+
+
+
+
+
+
 
 
 
