@@ -248,6 +248,7 @@ userLogin.forEach((btn) => {
         registrationOverlay.classList.add("active")
         registrationPopup.classList.add("active")
         document.body.style.overflow = "hidden"
+        fetchUserProfile()
 })
 })
 
@@ -261,3 +262,79 @@ closeRegistrationBtn.addEventListener("click", () => {
 registrationOverlay.addEventListener("click", () => {
     closeRegistrationBtn.click();
 })
+
+
+// Profile fetching and token
+
+const userSpan = document.querySelectorAll("#user-profile") as NodeListOf<HTMLElement>;
+const userName = localStorage.getItem("user");
+const token = localStorage.getItem("token");
+const profilePopup = document.querySelector(".register-wrap") as HTMLElement;
+
+if (userName && token) {
+    userSpan.forEach((span) => {
+        span.textContent = userName;
+    });
+} else {
+    localStorage.removeItem("user");
+    localStorage.removeItem("token");
+    userSpan.forEach((span) => {
+        span.textContent = "Sign in";
+    });
+}
+
+async function fetchUserProfile() {
+    if (!token) {
+        console.error("No token found. User is not authenticated.");
+        return;
+    }
+
+    try {
+        const response = await fetch("https://vsqsnqnxkh.execute-api.eu-central-1.amazonaws.com/prod/auth/profile", {
+            method: "GET",
+            headers: {
+                "Authorization": `Bearer ${token}`,
+                "Content-Type": 'application/json'
+            }
+        })
+
+        if (response.ok) {
+                const result = await response.json()
+                profilePopup.innerHTML = `
+                <div class="register-head"> 
+                    <h2>Profile</h2>
+                    <button class="close-registration">&times;</button>
+                </div>
+                <div class="register-content">
+                    <button class="sign-out-btn">Sign Out</button>
+                    <p><strong>Name:</strong> ${result.data.name}</p>
+                    <p><strong>Email:</strong> ${result.data.email}</p>
+                    <p><strong>Login:</strong> ${result.data.login}</p>
+                    <h3>Account Details</h3>
+                </div>
+                `
+                const closeProfileBtn = profilePopup.querySelector(".close-registration") as HTMLElement;
+                closeProfileBtn.addEventListener("click", () => {
+                    registrationPopup.classList.remove("active");
+                    registrationOverlay.classList.remove("active");
+                    document.body.style.overflow = "auto";
+                })
+
+                const signOutBtn = profilePopup.querySelector(".sign-out-btn") as HTMLElement;
+                signOutBtn.addEventListener("click", () => {
+                    localStorage.removeItem("user");
+                    localStorage.removeItem("token");
+                    userSpan.forEach((span) => {
+                        span.textContent = "Sign in";
+                    });
+                    window.location.reload();
+                })
+
+        } else {
+            console.error("Failed to fetch user profile:", response.statusText);
+        }
+    }
+    catch (error) {
+            console.error("Error fetching user profile:", error);
+        }
+    }
