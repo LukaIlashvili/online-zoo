@@ -160,9 +160,12 @@ function showSignUp() : void {
         </div>
         <div class="login-inputs">
             <input type="text" name="login" id="login-form" minlength="3" maxlength="12" required placeholder="Enter login">
-            <p id="login-hint" class="hint-text">3-12 chars, start with a letter (English only)</p>
+            <p id="login-hint" class="hint-text">3-12 chars, start with a letter (English only). Login must be unique.</p>
             <input type="password" name="password" id="password-form" minlength="6" maxlength="20" required placeholder="Enter password">
             <p id="pass-hint" class="hint-text">Min 6 chars, include a special character</p>
+                <div class="password-text">
+                    <input type="checkbox" id="show-pass"><span>Show Password</span></input>
+                </div>
             <input type="password" name="confirm-password" id="confirm-password-form" minlength="6" maxlength="20" required placeholder="Confirm password">
             <p id="confirm-pass-hint" class="hint-text">The two fields should match (case-sensitive).</p>
             <input type="text" name="name" id="name-form" required placeholder="Enter your name">
@@ -184,6 +187,17 @@ function showSignUp() : void {
         const nameInput = document.getElementById("name-form") as HTMLInputElement;
         const emailInput = document.getElementById("email-form") as HTMLInputElement;
         const registerBtn = document.getElementById("login-btn") as HTMLButtonElement;
+        const showPass = document.getElementById("show-pass") as HTMLInputElement;
+
+        showPass.addEventListener("change", () => {
+            if (showPass.checked) {
+                passInput.type = "text";
+                confirmInput.type = "text";
+            } else {
+                passInput.type = "password";
+                confirmInput.type = "password";
+            }
+        });
 
 
         const validateSignUp = () => {
@@ -232,10 +246,11 @@ function showLogin() : void {
                     </div>
                     <div class="login-inputs">
                         <input type="text" name="login" id="login-form" minlength="3" maxlength="12" required placeholder="Enter login">
-                        <!-- <p id="login-hint" class="hint-text">3-12 chars, start with a letter (English only)</p> -->
                         
                         <input type="password" name="password" id="password-form" minlength="6" maxlength="20" required placeholder="Enter password">
-                        <!-- <p id="pass-hint" class="hint-text">Min 6 chars, include a special character</p> -->
+                            <div class="password-text">
+                                <input type="checkbox" id="show-pass"><span>Show Password</span></input>
+                            </div>
                         
                         <button id="login-btn">Log In</button>
                     </div>
@@ -248,6 +263,16 @@ function showLogin() : void {
     const loginInput = document.getElementById("login-form") as HTMLInputElement;
     const passwordInput = document.getElementById("password-form") as HTMLInputElement;
     const loginBtn = document.getElementById("login-btn") as HTMLButtonElement;
+    const showPass = document.getElementById("show-pass") as HTMLInputElement;
+    const passInput = document.getElementById("password-form") as HTMLInputElement;
+
+    showPass.addEventListener("change", () => {
+    if (showPass.checked) {
+        passInput.type = "text";
+    } else {
+        passInput.type = "password";
+    }
+});
 
     setupLoginValidation(loginInput, passwordInput, loginBtn);
 
@@ -261,6 +286,9 @@ function showLogin() : void {
 // Initial Log in page
 
 const initialSignUpBtn = document.getElementById("register-button") as HTMLElement;
+const showPass = document.getElementById("show-pass") as HTMLInputElement;
+const passInput = document.getElementById("password-form") as HTMLInputElement;
+
 initialSignUpBtn.addEventListener("click", () => {
     showSignUp();
 });
@@ -272,6 +300,14 @@ const initialLoginBtn = document.getElementById("login-btn") as HTMLElement;
 if (initialLoginInput) {
     setupLoginValidation(initialLoginInput as HTMLInputElement, initialPasswordInput as HTMLInputElement, initialLoginBtn as HTMLButtonElement);
 }
+
+    showPass.addEventListener("change", () => {
+    if (showPass.checked) {
+        passInput.type = "text";
+    } else {
+        passInput.type = "password";
+    }
+});
 
 // Api registration and login 
 

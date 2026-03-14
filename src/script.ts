@@ -89,10 +89,10 @@ updateFormUI();
 
 
 // popup configs
-// setTimeout(() => {
-//     popup.classList.add("active")
-//     document.body.style.overflow = "hidden"
-// }, 2000)
+setTimeout(() => {
+    popup.classList.add("active")
+    document.body.style.overflow = "hidden"
+}, 2000)
 
 closeBtn2.addEventListener("click", () => {
     popup.classList.remove("active")
@@ -313,6 +313,8 @@ async function fetchUserProfile() {
                     <h3>Account Details</h3>
                 </div>
                 `
+                const userMail = localStorage.setItem("email", result.data.email);
+
                 const closeProfileBtn = profilePopup.querySelector(".close-registration") as HTMLElement;
                 closeProfileBtn.addEventListener("click", () => {
                     registrationPopup.classList.remove("active");
@@ -338,3 +340,6 @@ async function fetchUserProfile() {
             console.error("Error fetching user profile:", error);
         }
     }
+
+
+fetchUserProfile()

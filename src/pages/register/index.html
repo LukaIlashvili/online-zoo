@@ -316,10 +316,12 @@
                     </div>
                     <div class="login-inputs">
                         <input type="text" name="login" id="login-form" minlength="3" maxlength="12" required placeholder="Enter login">
-                        <!-- <p id="login-hint" class="hint-text">3-12 chars, start with a letter (English only)</p> -->
+                        
                         
                         <input type="password" name="password" id="password-form" minlength="6" maxlength="20" required placeholder="Enter password">
-                        <!-- <p id="pass-hint" class="hint-text">Min 6 chars, include a special character</p> -->
+                            <div class="password-text">
+                                <input type="checkbox" id="show-pass"><span>Show Password</span></input>
+                            </div>
                         
                         <button id="login-btn">Log In</button>
                     </div>

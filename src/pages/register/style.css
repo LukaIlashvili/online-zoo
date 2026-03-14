@@ -1400,3 +1400,52 @@ main {
 @keyframes spin {
     to { transform: rotate(360deg); }
 }
+
+
+/* Password group */
+.password-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.password-text {
+    display: flex;
+    margin-bottom: 5px;
+}
+
+.password-text input {
+    width: 15px;
+}
+
+.password-text span {
+    margin-left: 5px;
+}
+
+/* Fix: sign up window overlapping the UI */
+#login {
+    margin-top: 5%;
+}
+
+@media screen and (max-width: 500px) {
+    #login {
+        margin-top: 15%;
+    }
+}
+
+@media screen and (max-width: 460px) {
+    #login {
+        margin-top: 20%;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    #login {
+        margin-top: 25%;
+    }
+}
+
+@media screen and (max-width: 333px) {
+    #login {
+        margin-top: 35%;
+    }
+}
