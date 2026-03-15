@@ -587,7 +587,7 @@ footer {
     font-family: "Montserrat";
     position: absolute;
     transition: 0.3s;
-    z-index: 100000;
+    z-index: 10;
     height: 700px;
     border-bottom: 1px solid white;
     border-right: 1px solid white;
@@ -685,7 +685,7 @@ aside a {
 
 #menu.menu-open {
     width: 300px;
-    height: 700px;
+    height: 720px;
 }
 
 #menu.menu-open .live-tag {

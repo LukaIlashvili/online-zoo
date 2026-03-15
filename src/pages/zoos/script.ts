@@ -188,7 +188,7 @@ const donationModal = document.getElementById("donate-modal") as HTMLElement;
 const closeBtn = document.getElementById("close-donate-steps") as HTMLElement;
 const donationForm = document.getElementById("donation-steps-form") as HTMLFormElement;
 
-const openModalBtns = document.querySelectorAll(".live-header button, .donate-now1, .footer-button button, .donate-btn, .choose-btn, .text-content button, .care-card button, .choose-btn1");
+const openModalBtns = document.querySelectorAll(".live-header button, .donate-now1, .footer-button button, .donate-btn, .choose-btn, .text-content button, .care-card button, .choose-btn1, .donate-now") as NodeListOf<HTMLElement>;
 
 const nextBtn = document.getElementById("next-btn") as HTMLButtonElement;
 const backBtn = document.getElementById("back-btn") as HTMLElement;
@@ -459,3 +459,203 @@ monthSelect.addEventListener("change", validateStep);
 yearSelect.addEventListener("change", validateStep);
 loadDonationData();
 updateFormUI();
+
+
+
+// Zoos logic
+
+// sidebar
+
+const petIcons: Record<number, string> = {
+    1: "Panda", // Removed /public
+    2: "Lemur", // Removed /public
+    3: "Gorilla", // Removed /public
+    4: "Eagle" // Removed /public
+}
+
+const petFiles: Record<number, string> = {
+    1: "pandazoo",
+    2: "lemurstats",
+    3: "gorillastats",
+    4: "eaglestats"
+}
+
+const liveData: Record<number, { title: string; videoUrl: string; thumb: string; cams: string[] }> = {
+    1: { 
+        title: "LIVE PANDA CAMS", 
+        videoUrl: "https://www.youtube.com/watch?v=3szkFHfr6sA", 
+        thumb: "/assets/images/pandacam.png",
+        cams: ["smallpcam1.png", "smallpcam2.png", "smallpcam3.png"] 
+    },
+    2: { 
+        title: "LIVE LEMUR CAMS", 
+        videoUrl: "https://youtu.be/yYXoCHLqr4o?si=Q7wyUNTBw_FtK2Es", 
+        thumb: "/assets/icons/lemuryt.png",
+        cams: ["lemurcam1.png", "lemurcam2.png", "lemurcam3.png"] 
+    },
+    3: { 
+        title: "LIVE GORILLA CAMS", 
+        videoUrl: "https://youtu.be/GlOQnsVOa2o?si=kx2OSpU4rRlEwGHG", 
+        thumb: "/assets/icons/gorillayt.png",
+        cams: ["gorrilacam1.png", "gorilllacam2.png", "gorillacam3.png"] 
+    },
+    4: { 
+        title: "LIVE EAGLE CAMS", 
+        videoUrl: "https://youtu.be/hecXupPpE9o?si=IoUsZ95PXO6EgByg", 
+        thumb: "/assets/icons/eagleyt.png",
+        cams: ["eaglecam1.png", "eaglecam2.png", "eaglecam3.png"] 
+    }
+};
+
+async function loadSidebarCameras() {
+    const navContainer = document.querySelector(".animal-nav") as HTMLElement;
+    if (!navContainer) return;
+
+    try {
+        const response = await fetch("https://vsqsnqnxkh.execute-api.eu-central-1.amazonaws.com/prod/cameras");
+        const { data } = await response.json();
+
+        const allowedIds = [1, 2, 3, 4];
+        const filteredData = data.filter((cam: any) => allowedIds.includes(cam.id));
+
+        navContainer.innerHTML = filteredData.map((cam: any) => {
+            return `
+            <div class="line"></div>
+            <a href="" data-id = "${cam.id}" class="animal-link">
+                <div class="animal-icon">
+                    <div class="circle">
+                        <img class="starter" src="/public/assets/icons/${petIcons[cam.id]}.png" alt="icon">
+                    </div>
+                    <img class="opened" src="/public/assets/icons/${petIcons[cam.id]}1.png" alt="icon">
+                    <p>${cam.text}</p>
+                </div>
+            </a>
+            `;
+        }).join("");
+
+    } catch (error) {
+        console.error("API failed:", error);
+    }
+}
+
+// At the bottom of your script, initialize with a loading state
+setStatus("Initializing zoo data...");
+
+loadSidebarCameras().then(() => {
+    // Once sidebar loads, we are ready
+    setStatus(""); 
+}).catch(() => {
+    setStatus("Failed to load sidebar. Please refresh.", true);
+});
+
+async function updateAnimalStats(petId: number) {
+    setStatus("Loading animal stats...");
+
+    try {
+        const response = await fetch(`https://vsqsnqnxkh.execute-api.eu-central-1.amazonaws.com/prod/pets/${petId}`)
+        const { data } = await response.json();
+
+        const statsContainer = document.querySelector(".animal-stats .stats") as HTMLElement;
+        const spans = statsContainer.querySelectorAll("span") as NodeListOf<HTMLElement>;
+        const didYouKnow = document.getElementById("didyouknowP") as HTMLElement;
+
+        if (didYouKnow) didYouKnow.textContent = data.description;
+
+        if (spans) {
+            spans[0].textContent = data.commonName;
+            spans[1].textContent = data.scientificName;
+            spans[2].textContent = data.type
+            spans[3].textContent = data.size
+            spans[4].textContent = data.diet
+            spans[5].textContent = data.habitat
+            spans[6].textContent = data.range
+        }
+
+        const desc = document.querySelector(".animal-description p") as HTMLElement;
+        if (desc) {
+            desc.textContent = data.detailedDescription;
+        }
+
+        const img = document.querySelector(".animal-pic img") as HTMLImageElement;
+        if (img) img.src = `/public/assets/images/${petFiles[petId]}.png`;
+    } catch (error) {
+        setStatus("Failed to load animal stats.", true);
+    }
+}
+
+updateAnimalStats(1);
+loadSidebarCameras()
+
+const navContainer = document.querySelector(".animal-nav");
+
+navContainer?.addEventListener("click", (event) => {
+    // Look for the clicked element's parent that has the 'sidebar-link' class
+    const target = (event.target as HTMLElement).closest(".animal-link");
+    
+    if (target) {
+        event.preventDefault(); // Stop the browser from following the href
+        const petId = target.getAttribute("data-id");
+        
+        if (petId) {
+            // Convert to number and call your stats function
+            updateAnimalStats(Number(petId));
+            updateLiveSection(Number(petId));
+        }
+    }
+});
+
+
+function updateLiveSection(petId: number) {
+    const data = liveData[petId];
+    if (!data) return;
+
+    // Update Header
+    const header = document.querySelector(".live-header h2");
+    if (header) header.textContent = data.title;
+
+    // Update Main Video Link
+    const link = document.querySelector("#live a") as HTMLAnchorElement;
+    if (link) link.href = data.videoUrl;
+
+    // Update Main Video Image
+    const mainImg = document.querySelector(".video img") as HTMLImageElement;
+    if (mainImg) mainImg.src = data.thumb;
+
+    // Update Small Cams (The gallery)
+    const smallCams = document.querySelectorAll(".other-cams-align img");
+    data.cams.forEach((camFile, index) => {
+        if (smallCams[index]) {
+            (smallCams[index] as HTMLImageElement).src = `/assets/icons/${camFile}`;
+        }
+    });
+}
+
+function setStatus(message: string, isError: boolean = false) {
+    const statusDiv = document.getElementById("status-message") as HTMLElement;
+    const contentSections = document.querySelectorAll("#animal-stats, #live");
+    
+    if (message) {
+        statusDiv.textContent = message;
+        statusDiv.style.display = "block";
+        statusDiv.style.color = isError ? "red" : "white";
+        // Hide actual content while loading/error
+        contentSections.forEach(s => (s as HTMLElement).style.opacity = "0.3");
+    } else {
+        statusDiv.style.display = "none";
+        contentSections.forEach(s => (s as HTMLElement).style.opacity = "1");
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
