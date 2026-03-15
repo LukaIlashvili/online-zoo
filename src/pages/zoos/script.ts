@@ -1,3 +1,6 @@
+import L from "leaflet";
+import "leaflet/dist/leaflet.css";
+
 // Sidebar
 
 const menu = document.getElementById('menu') as HTMLElement;
@@ -65,6 +68,7 @@ closeRegistrationBtn.addEventListener("click", () => {
 
 registrationOverlay.addEventListener("click", () => {
     closeRegistrationBtn.click();
+    closeMapBtn.click();
 })
 
 
@@ -579,6 +583,12 @@ async function updateAnimalStats(petId: number) {
         const img = document.querySelector(".animal-pic img") as HTMLImageElement;
         if (img) img.src = `/public/assets/images/${petFiles[petId]}.png`;
         setStatus("");
+
+        const lat = parseCoordinate(data.latitude);
+        const lng = parseCoordinate(data.longitude);
+        updateMapMarker(lat, lng);
+
+
     } catch (error) {
         setStatus("Failed to load animal stats.", true);
     }
@@ -647,10 +657,82 @@ function setStatus(message: string, isError: boolean = false) {
     }
 }
 
+// map popup logic
 
 
+const openMap = document.getElementById("map-button") as HTMLElement;
+const mapPopup = document.querySelector(".map-popup") as HTMLElement;
+const closeMapBtn = document.querySelector(".close-map") as HTMLElement;
+let map: any = null;
 
+// Call this once on page load to set up the Leaflet object
+function initMap() {
+    map = L.map('map-id').setView([0, 0], 2);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap'
+    }).addTo(map);
+}
 
+// Define a variable to hold your active marker globally
+let currentMarker: any = null;
+
+function updateMapMarker(lat: number, lng: number) {
+    if (!map) return;
+
+    // 1. Remove the old marker if it exists
+    if (currentMarker) {
+        map.removeLayer(currentMarker);
+    }
+
+    // 2. Add the new marker at the new coordinates
+    currentMarker = L.marker([lat, lng]).addTo(map);
+
+    // 3. Optional: Add a popup so users know what they are looking at
+    currentMarker.bindPopup("Habitat Location").openPopup();
+
+    // 4. Smoothly move the map view to the new marker
+    map.flyTo([lat, lng], 8); 
+}
+
+function parseCoordinate(coordString: string): number {
+    // 1. Remove everything except numbers, dots, and minus signs
+    const cleaned = coordString.replace(/[^0-9.-]/g, '');
+    
+    // 2. Convert to a standard number
+    let val = parseFloat(cleaned);
+    
+    // 3. Handle S (South) and W (West) directions, which should be negative
+    if (coordString.includes('S') || coordString.includes('W')) {
+        val = val * -1;
+    }
+    
+    return val;
+}
+
+// Ensure initMap is called at least once before the click listener triggers
+document.addEventListener("DOMContentLoaded", () => {
+    initMap();
+});
+
+openMap.addEventListener("click", () => {
+    mapPopup.style.visibility = "visible";
+    mapPopup.style.opacity = "1";
+    document.body.style.overflow = "hidden";
+    mapPopup.style.pointerEvents = "auto";
+    registrationOverlay.classList.add("active");
+
+    if (map) {
+        map.invalidateSize();
+    }
+})
+
+closeMapBtn.addEventListener("click", () => {
+    mapPopup.style.visibility = "hidden";
+    mapPopup.style.opacity = "0";
+    document.body.style.overflow = "auto";
+    mapPopup.style.pointerEvents = "none";
+    registrationOverlay.classList.remove("active");
+})
 
 
 

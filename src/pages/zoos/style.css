@@ -4399,3 +4399,49 @@ footer {
         }
     }
 }
+
+/* map modal */
+
+.map-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 1px solid black;
+    width: 90%;
+    height: 450px;
+    z-index: 100000;
+    font-family: "Montserrat";
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.map-head {
+    width: 100%;
+    background-color: #F58021;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.map-head h2 {
+    font-size: 22px;
+    padding: 10px;
+}
+
+.map-head button {
+    font-size: 60px;
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.map-head button:hover {
+    color: rgb(228, 228, 228)
+}
