@@ -578,6 +578,7 @@ async function updateAnimalStats(petId: number) {
 
         const img = document.querySelector(".animal-pic img") as HTMLImageElement;
         if (img) img.src = `/public/assets/images/${petFiles[petId]}.png`;
+        setStatus("");
     } catch (error) {
         setStatus("Failed to load animal stats.", true);
     }
