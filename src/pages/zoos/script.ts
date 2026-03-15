@@ -19,8 +19,7 @@ toggleBtn.addEventListener('click', () => {
 
 import "./style.css";
 
-const popup = document.getElementById("popup1") as HTMLElement;
-const closeBtn2 = document.getElementById("close-btn") as HTMLElement;
+
 
 
 
@@ -121,7 +120,7 @@ async function fetchUserProfile() {
                     <h3>Account Details</h3>
                 </div>
                 `
-                const userMail = localStorage.setItem("email", result.data.email);
+                localStorage.setItem("email", result.data.email);
 
                 const closeProfileBtn = profilePopup.querySelector(".close-registration") as HTMLElement;
                 closeProfileBtn.addEventListener("click", () => {
@@ -528,9 +527,9 @@ async function loadSidebarCameras() {
             <a href="" data-id = "${cam.id}" class="animal-link">
                 <div class="animal-icon">
                     <div class="circle">
-                        <img class="starter" src="/public/assets/icons/${petIcons[cam.id]}.png" alt="icon">
+                        <img class="starter" src="/assets/icons/${petIcons[cam.id]}.png" alt="icon">
                     </div>
-                    <img class="opened" src="/public/assets/icons/${petIcons[cam.id]}1.png" alt="icon">
+                    <img class="opened" src="/assets/icons/${petIcons[cam.id]}1.png" alt="icon">
                     <p>${cam.text}</p>
                 </div>
             </a>
@@ -581,7 +580,7 @@ async function updateAnimalStats(petId: number) {
         }
 
         const img = document.querySelector(".animal-pic img") as HTMLImageElement;
-        if (img) img.src = `/public/assets/images/${petFiles[petId]}.png`;
+        if (img) img.src = `/assets/images/${petFiles[petId]}.png`;
         setStatus("");
 
         const lat = parseCoordinate(data.latitude);

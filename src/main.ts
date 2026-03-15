@@ -1,6 +1,7 @@
 import "./types";
 import petImages from "./constants";
 import type { Feedback, Pet } from "./types";
+import "./assets-manifest";
 
 
 async function getAnimals(): Promise<void> {

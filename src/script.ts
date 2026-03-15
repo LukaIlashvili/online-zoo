@@ -230,7 +230,7 @@ async function fetchUserProfile() {
                     <h3>Account Details</h3>
                 </div>
                 `
-                const userMail = localStorage.setItem("email", result.data.email);
+                localStorage.setItem("email", result.data.email);
 
                 const closeProfileBtn = profilePopup.querySelector(".close-registration") as HTMLElement;
                 closeProfileBtn.addEventListener("click", () => {
