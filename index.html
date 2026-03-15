@@ -66,20 +66,20 @@
                                 <span class="full">OTHER AMOUNT</span>
                                 <span class="less">OTHER</span>
                             </button>
-                            <input type="number" name="custom_amount">
+                            <input id="donation-input" type="number" name="custom_amount">
                         </div>
 
                         <div class="fav-pet">
                             <button class="otr-btn1">FOR SPECIAL PET</button>
                             <select name="pet">
                                 <option value="">Choose your favourite</option>
-                                <option value="panda">Lukas the Panda</option>
-                                <option value="panda">Andy the Lemur</option>
-                                <option value="panda">Glen the Gorilla</option>
-                                <option value="panda">Mike the Alligator</option>
-                                <option value="panda">Sam & Lora the eagles family</option>
-                                <option value="panda">Liz the Koala</option>
-                                <option value="panda">Shake the Lion</option>
+                                <option value="1">Lukas the Panda</option>
+                                <option value="2">Andy the Lemur</option>
+                                <option value="3">Glen the Gorilla</option>
+                                <option value="4">Mike the Alligator</option>
+                                <option value="5">Sam & Lora the eagles family</option>
+                                <option value="6">Liz the Koala</option>
+                                <option value="7">Shake the Lion</option>
                                 </select>
                         </div>
 
@@ -96,11 +96,11 @@
                         <div class="container">
                         <div class="input-field">
                             <label>* Your Name</label>
-                            <input type="text" placeholder="First and last name" required>
+                            <input id="name-donation" type="text" placeholder="Enter your name" required>
                         </div>
                         <div class="input-field">
                             <label>* Your Email Address</label>
-                            <input type="email" placeholder="Enter your email" required>
+                            <input id="email-donation" type="email" placeholder="Enter your email" required>
                         </div>
                         <p>You will receive emails from the Online Zoo, including updates and news on the latest discoveries and translations. You can unsubscribe at any time.</p>
                     </div>
@@ -110,15 +110,15 @@
                 <div class="form-step" data-step="3">
                     <div class="step-body">
                         <p class="section-title">Payment Information:</p>
-                        <div class="container">
+                        <div class="container" id="creditcard-container">
                         <div class="flex-row">
                             <div class="input-field date">
                             <label>* Credit Card Number</label>
-                            <input type="text" placeholder="Card number" required>
+                            <input id="creditcard-input" type="text" placeholder="Card number" required>
                             </div>
                             <div class="input-field-small">
                                 <label>* CVV Number</label>
-                                <input type="text" maxlength="3" required>
+                                <input id="cvv-input" type="text" maxlength="3" required>
                             </div>
 
                         </div>
@@ -126,8 +126,30 @@
                             <div class="input-field date">
                                 <label>* Expiration Date</label>
                                 <div class="date-inputs">
-                                    <select><option>Month</option></select>
-                                    <select><option>Year</option></select>
+                                    <select id="month-select">
+                                        <option>Month</option>
+                                        <option>01</option>
+                                        <option>02</option>
+                                        <option>03</option>
+                                        <option>04</option>
+                                        <option>05</option>
+                                        <option>06</option>
+                                        <option>07</option>
+                                        <option>08</option>
+                                        <option>09</option>
+                                        <option>10</option>
+                                        <option>11</option>
+                                        <option>12</option>
+                                    </select>
+                                    <select id="year-select">
+                                        <option>Year</option>
+                                        <option>2027</option>
+                                        <option>2028</option>
+                                        <option>2029</option>
+                                        <option>2030</option>
+                                        <option>2031</option>
+                                        <option>2032</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
