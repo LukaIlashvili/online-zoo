@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Online Zoo - Zoos</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="shortcut icon"
+      href="../../assets/icons/Favicon.png"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
+    <!-- Donation modal -->
+    <div id="donate-modal" class="popup-overlay donation-overlay">
+      <div class="popup-content donation-content">
+        <div class="modal-header">
+          <h3>MAKE YOUR DONATION</h3>
+          <button type="button" class="close-popup" id="close-donate-steps">
+            &times;
+          </button>
+        </div>
+
+        <form id="donation-steps-form">
+          <div class="form-step active" data-step="1">
+            <div class="step-body">
+              <p class="section-title">Donation Information:</p>
+              <div class="container">
+                <p class="input-label">
+                  <span style="color: #00a092">*</span> Choose your donation
+                  amount:
+                </p>
+
+                <div class="amount-grid">
+                  <label class="amount-card"
+                    ><input type="radio" name="amount" value="10" /> $10</label
+                  >
+                  <label class="amount-card"
+                    ><input type="radio" name="amount" value="20" /> $20</label
+                  >
+                  <label class="amount-card"
+                    ><input type="radio" name="amount" value="30" /> $30</label
+                  >
+                  <label class="amount-card"
+                    ><input type="radio" name="amount" value="50" /> $50</label
+                  >
+                  <label class="amount-card"
+                    ><input type="radio" name="amount" value="80" /> $80</label
+                  >
+                  <label class="amount-card"
+                    ><input type="radio" name="amount" value="100" />
+                    $100</label
+                  >
+                </div>
+
+                <div class="other-amount">
+                  <button class="otr-btn">
+                    <span class="full">OTHER AMOUNT</span>
+                    <span class="less">OTHER</span>
+                  </button>
+                  <input type="number" name="custom_amount" />
+                </div>
+
+                <div class="fav-pet">
+                  <button class="otr-btn1">FOR SPECIAL PET</button>
+                  <select name="pet">
+                    <option value="">Choose your favourite</option>
+                    <option value="panda">Lukas the Panda</option>
+                    <option value="panda">Andy the Lemur</option>
+                    <option value="panda">Glen the Gorilla</option>
+                    <option value="panda">Mike the Alligator</option>
+                    <option value="panda">Sam & Lora the eagles family</option>
+                    <option value="panda">Liz the Koala</option>
+                    <option value="panda">Shake the Lion</option>
+                  </select>
+                </div>
+
+                <label class="checkbox-container">
+                  <input type="checkbox" /> Make this a monthly recurring gift
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-step" data-step="2">
+            <div class="step-body">
+              <p class="section-title">Billing Information:</p>
+              <div class="container">
+                <div class="input-field">
+                  <label>* Your Name</label>
+                  <input
+                    type="text"
+                    placeholder="First and last name"
+                    required
+                  />
+                </div>
+                <div class="input-field">
+                  <label>* Your Email Address</label>
+                  <input type="email" placeholder="Enter your email" required />
+                </div>
+                <p>
+                  You will receive emails from the Online Zoo, including updates
+                  and news on the latest discoveries and translations. You can
+                  unsubscribe at any time.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-step" data-step="3">
+            <div class="step-body">
+              <p class="section-title">Payment Information:</p>
+              <div class="container">
+                <div class="flex-row">
+                  <div class="input-field date">
+                    <label>* Credit Card Number</label>
+                    <input type="text" placeholder="Card number" required />
+                  </div>
+                  <div class="input-field-small">
+                    <label>* CVV Number</label>
+                    <input type="text" maxlength="3" required />
+                  </div>
+                </div>
+                <div class="input-field">
+                  <div class="input-field date">
+                    <label>* Expiration Date</label>
+                    <div class="date-inputs">
+                      <select>
+                        <option>Month</option>
+                      </select>
+                      <select>
+                        <option>Year</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <div class="progress-dots">
+              <span class="dot active"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
+            <div class="container1">
+              <div class="form-nav">
+                <button type="button" id="back-btn" class="back-text">
+                  Back
+                </button>
+                <button type="button" id="next-btn" class="next-btn">
+                  NEXT &rarr;
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- HEADER NAVBAR -->
+    <header>
+      <nav id="nav">
+        <div class="nav-wrap">
+          <div class="logo">
+            <a href="../landing/index.html"
+              ><img src="../../assets/images/Logo.png" alt="website logo"
+            /></a>
+          </div>
+          <div class="nav-other">
+            <div class="tabs">
+              <button class="close-sidebar">&times;</button>
+              <ul>
+                <li><a href="../landing/index.html">ABOUT</a></li>
+                <li><a href="../map/index.html">MAP</a></li>
+                <li class="active"><a href="">ZOOS</a></li>
+                <li><a href="../contact/index.html">CONTACT US</a></li>
+                <li>
+                  <a
+                    href="https://www.figma.com/file/lnK11foY8Aoa6oOlDXovVN/Online-ZOO-Project?node-id=0%3A1"
+                    >DESIGN</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="nav-socials">
+              <a href="https://www.youtube.com/c/RSschool"
+                ><img src="../../assets/icons/YouTube.png" alt="youtube logo"
+              /></a>
+              <a href="https://www.instagram.com/rsschool_en/?hl=en"
+                ><img
+                  src="../../assets/icons/Instagram.png"
+                  alt="instagram logo"
+              /></a>
+              <a href="https://www.facebook.com/rsschoolEN/"
+                ><img src="../../assets/icons/Facebook.png" alt="facebook logo"
+              /></a>
+            </div>
+            <button class="toggle">
+              <span class="bar"></span>
+              <span class="bar"></span>
+              <span class="bar"></span>
+            </button>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <aside id="menu">
+        <div class="menu-header">
+          <div class="live-tag">
+            LIVE <img src="../../assets/icons/live-icon.png" alt="cam-icon" />
+          </div>
+          <button class="menu-toggle">&gt;&gt;</button>
+        </div>
+
+        <nav class="animal-nav">
+          <div class="line"></div>
+          <div class="animal-icon">
+            <div class="circle-active">
+              <img
+                class="starter"
+                src="../../assets/icons/Eagle.png"
+                alt="panda icon"
+              />
+            </div>
+            <img
+              class="opened"
+              src="../../assets/icons/Eagleactive.png"
+              alt="panda icon"
+            />
+            <p>Watch The Bald Eagles Nest from West End cam</p>
+          </div>
+          <div class="line"></div>
+          <a href="gorilla.html"><div class="animal-icon">
+            <div class="circle">
+              <img
+                class="starter"
+                src="../../assets/icons/Gorilla.png"
+                alt="panda icon"
+              />
+            </div>
+            <img
+              class="opened"
+              src="../../assets/icons/Gorilla1.png"
+              alt="panda icon"
+            />
+            <p>Livestream from Gorilla Forest Corridor habitat cam</p>
+          </div></a>
+          <div class="line"></div>
+          <a href="lemur.html"><div class="animal-icon">
+            <div class="circle">
+              <img
+                class="starter"
+                src="../../assets/icons/Lemur.png"
+                alt="panda icon"
+              />
+            </div>
+            <img
+              class="opened"
+              src="../../assets/icons/Lemur1.png"
+              alt="panda icon"
+            />
+            <p>The ring-tailed lemurs play in Madagascar, Lemuria Land</p>
+          </div></a>
+          <div class="line"></div>
+          <a href="panda.html"><div class="animal-icon">
+            <div class="circle">
+              <img
+                class="starter"
+                src="../../assets/icons/Panda.png"
+                alt="panda icon"
+              />
+            </div>
+            <img
+              class="opened"
+              src="../../assets/icons/Pandaactive.png"
+              alt="panda icon"
+            />
+            <p>Watch live from China's Panda Center</p>
+          </div></a>
+        </nav>
+        <div class="line"></div>
+        <a href="gorilla.html"><button class="down-arrow">&or;</button></a>
+      </aside>
+      <section id="live">
+        <div class="live-wrap">
+          <div class="live-header-wrap">
+            <div class="live-header">
+              <h2>BALD EAGLE CAMS</h2>
+              <button>DONATE NOW &rarr;</button>
+            </div>
+          </div>
+          <a href="https://www.youtube.com/watch?v=rLnd4V8Gfq4"><div class="live-cam">
+            <div class="video">
+              <img
+                src="../../assets/icons/eagleyt.png"
+                alt="Panda Video pic"
+              />
+            </div>
+            <div class="play">
+              <img
+                class="normal"
+                src="../../assets/icons/play.png"
+                alt="Play button"
+              />
+              <img
+                src="../../assets/icons/playactive.png"
+                alt="play button active"
+                class="active"
+              />
+            </div>
+          </div></a>
+          <button class="donate-now">DONATE NOW &rarr;</button>
+          <div class="other-cams">
+            <h3>MORE LIVE VIEWS</h3>
+            <div class="other-cams-align">
+              <button>&larr;</button>
+              <img
+                class="cam-active"
+                src="../../assets/icons/eaglecam1.png"
+                alt="cam1"
+              />
+              <img src="../../assets/icons/eaglecam2.png" alt="cam2" />
+              <img
+                class="removable"
+                src="../../assets/icons/eaglecam3.png"
+                alt="cam3"
+              />
+              <button>&rarr;</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <button class="donate-now1">DONATE NOW &rarr;</button>
+
+      <section id="quick-donate-section">
+        <div class="quick-donate-wrap">
+          <div class="quick-donate-text">
+            <h3>KEEP THE BALD EAGLE CAMS STREAMING!</h3>
+            <p>
+Watch as this lifelong pair of eagle parents lay and protect eggs, feed their chicks and teach them to hunt and fly. Sam & Lora have stolen the hearts of thousands of viewers! 100% of the donations from this page will be utilized directly for the streaming and operational costs of this project.
+            </p>
+          </div>
+          <div class="quick-donate-btn">
+            <p>Quick Donate</p>
+            <div class="donate-btn">
+              <p>$ DONATION AMOUNT</p>
+              <button>&rarr;</button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="animal-stats">
+        <div class="animal-stats-wrap">
+          <div class="didyouknow">
+            <h3>DID YOU KNOW?</h3>
+            <p>
+Because of its role as a symbol of the US, but also because of its being a large predator, the bald eagle has many representations in popular culture. Not all of these representations are accurate. In particular, the movie or television bald eagle typically has a bold, powerful cry. The actual eagle has a much softer, chirpy voice, not in keeping with its popular image.
+            </p>
+          </div>
+          <div class="animal-stats">
+            <div class="stats">
+              <p>Common name: <span>Bald Eagle</span></p>
+              <p>Scientific name: <span>Haliaeetus Leucocephalus</span></p>
+              <p>Type: <span>Birds</span></p>
+              <p>Size: <span>Body: 34 to 43 inches; wingspan: 6 to 8 feet</span></p>
+              <p>Dier: <span>Carnivore</span></p>
+              <p>Habitat: <span>Seacoasts, rivers, large lakes or marshes</span></p>
+              <p>
+                Range: <span>Continental United States</span
+                ><a href="../map/index.html"
+                  ><span class="btn">VIEW MAP &rarr;</span></a
+                >
+              </p>
+            </div>
+            <div class="animal-pic">
+              <img src="../../assets/images/eaglestats.png" alt="eagle pic" />
+            </div>
+          </div>
+          <div class="animal-description">
+            <p>
+The bald eagle, with its snowy-feathered (not bald) head and white tail, is the proud national bird symbol of the United States—yet the bird was nearly wiped out there. For many decades, bald eagles were hunted for sport and for the "protection" of fishing grounds.  These powerful birds of prey use their talons to fish, but they get many of their meals by scavenging carrion or stealing the kills of other animals. They live near water and favor coasts and lakes where fish are plentiful, though they will also snare and eat small mammals. Bald eagles are believed to mate for life. A pair constructs an enormous stick nest—one of the bird-world's biggest—high above the ground and tends to a pair of eggs each year. Immature eagles are dark, and until they are about five years old, they lack the distinctive white markings that make their parents so easy to identify.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+        <div class="footer-wrap">
+            <div class="footer-top-column">
+                <div class="footer-images">
+                    <img src="../../assets/images/LogoWhite.png" alt="online zoo logo">
+                    <img class="yem" src="../../assets/images/YemDigital.png" alt="yem digital">
+                    <img src="../../assets/images/rs_school_jslogo.png" alt="rs school logo">
+                </div>
+                <div class="footer-nav">
+                    <ul>
+                        <li><a href="../landing/index.html">ABOUT</a></li>
+                        <li><a href="../map/index.html">MAP</a></li>
+                        <li><a href="../zoos/panda.html">ZOOS</a></li>
+                        <li><a href="../contact/index.html">CONTACT US</a></li>
+                    </ul>
+                </div>
+                <div class="footer-button">
+                    <button>DONATE FOR VOLUNTEERS &rarr;</button>
+                </div>
+            </div>
+            <div class="footer-line"></div>
+            <div class="footer-bottom-column">
+                <div class="footer-copyright">
+                    <p>&copy; 2021 DinaK</p>
+                    <p>&copy; Yem Digital</p>
+                    <p>&copy; RSSchool</p>
+                </div>
+                <div class="footer-socials">
+                    <a href="https://www.youtube.com/c/RSschool"><img src="../../assets/icons/YouTube.png" alt="youtube logo"></a>
+                    <a href="https://www.instagram.com/rsschool_en/?hl=en"><img src="../../assets/icons/Instagram.png" alt="instagram logo"></a>
+                    <a href="https://www.facebook.com/rsschoolEN/"><img src="../../assets/icons/Facebook.png" alt="facebook logo"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

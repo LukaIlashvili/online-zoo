@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Zoo - Zoos</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="../../assets/icons/Favicon.png" type="image/x-icon">
+</head>
+<body>
+    <div class="overlay-registration"></div>
+    <!-- Donation windows -->
+    <div id="donate-modal" class="popup-overlay donation-overlay">
+        <div class="popup-content donation-content">
+            
+            <div class="modal-header">
+                <h3>MAKE YOUR DONATION</h3>
+                <button type="button" class="close-popup" id="close-donate-steps">&times;</button>
+            </div>
+
+            <form id="donation-steps-form">
+                <div class="form-step active" data-step="1">
+                    <div class="step-body">
+                        <p class="section-title">Donation Information:</p>
+                        <div class="container">
+                        <p class="input-label"><span style="color: #00A092;">*</span> Choose your donation amount:</p>
+                        
+                        <div class="amount-grid">
+                            <label class="amount-card"><input type="radio" name="amount" value="10"> $10</label>
+                            <label class="amount-card"><input type="radio" name="amount" value="20"> $20</label>
+                            <label class="amount-card"><input type="radio" name="amount" value="30"> $30</label>
+                            <label class="amount-card"><input type="radio" name="amount" value="50"> $50</label>
+                            <label class="amount-card"><input type="radio" name="amount" value="80"> $80</label>
+                            <label class="amount-card"><input type="radio" name="amount" value="100"> $100</label>
+                        </div>
+
+                        <div class="other-amount">
+                            <button class="otr-btn">
+                                <span class="full">OTHER AMOUNT</span>
+                                <span class="less">OTHER</span>
+                            </button>
+                            <input id="donation-input" type="number" name="custom_amount">
+                        </div>
+
+                        <div class="fav-pet">
+                            <button class="otr-btn1">FOR SPECIAL PET</button>
+                            <select name="pet">
+                                <option value="">Choose your favourite</option>
+                                <option value="1">Lukas the Panda</option>
+                                <option value="2">Andy the Lemur</option>
+                                <option value="3">Glen the Gorilla</option>
+                                <option value="4">Mike the Alligator</option>
+                                <option value="5">Sam & Lora the eagles family</option>
+                                <option value="6">Liz the Koala</option>
+                                <option value="7">Shake the Lion</option>
+                                </select>
+                        </div>
+
+                        <label class="checkbox-container">
+                            <input type="checkbox"> Make this a monthly recurring gift
+                        </label>
+                    </div>
+                    </div>
+                </div>
+
+                <div class="form-step" data-step="2">
+                    <div class="step-body">
+                        <p class="section-title">Billing Information:</p>
+                        <div class="container">
+                        <div class="input-field">
+                            <label>* Your Name</label>
+                            <input id="name-donation" type="text" placeholder="Enter your name" required>
+                        </div>
+                        <div class="input-field">
+                            <label>* Your Email Address</label>
+                            <input id="email-donation" type="email" placeholder="Enter your email" required>
+                        </div>
+                        <p>You will receive emails from the Online Zoo, including updates and news on the latest discoveries and translations. You can unsubscribe at any time.</p>
+                    </div>
+                    </div>
+                </div>
+
+                <div class="form-step" data-step="3">
+                    <div class="step-body">
+                        <p class="section-title">Payment Information:</p>
+                        <div class="container" id="creditcard-container">
+                        <div class="flex-row">
+                            <div class="input-field date">
+                            <label>* Credit Card Number</label>
+                            <input id="creditcard-input" type="text" placeholder="Card number" required>
+                            </div>
+                            <div class="input-field-small">
+                                <label>* CVV Number</label>
+                                <input id="cvv-input" type="text" maxlength="3" required>
+                            </div>
+
+                        </div>
+                        <div class="input-field">
+                            <div class="input-field date">
+                                <label>* Expiration Date</label>
+                                <div class="date-inputs">
+                                    <select id="month-select">
+                                        <option>Month</option>
+                                        <option>01</option>
+                                        <option>02</option>
+                                        <option>03</option>
+                                        <option>04</option>
+                                        <option>05</option>
+                                        <option>06</option>
+                                        <option>07</option>
+                                        <option>08</option>
+                                        <option>09</option>
+                                        <option>10</option>
+                                        <option>11</option>
+                                        <option>12</option>
+                                    </select>
+                                    <select id="year-select">
+                                        <option>Year</option>
+                                        <option>2027</option>
+                                        <option>2028</option>
+                                        <option>2029</option>
+                                        <option>2030</option>
+                                        <option>2031</option>
+                                        <option>2032</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <div class="progress-dots">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                    <div class="container1">
+                    <div class="form-nav">
+                        <button type="button" id="back-btn" class="back-text">Back</button>
+                        <button type="button" id="next-btn" class="next-btn">NEXT &rarr;</button>
+                    </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Registration / Log in pop up -->
+     <div id="register-popup">
+        <div class="register-wrap">
+            <div class="register-head">
+                <h2>JOIN US AT ONLINE ZOO</h2>
+                <button class="close-registration">&times;</button>
+            </div>
+            <div class="register-content">
+                <div class="register-buttons">
+                    <a href="/src/pages/register/index.html" class="register-button">Log In</a>
+                    <a href="/src/pages/register/index.html" class="register-button">Sign Up</a>
+                </div>
+                <div class="register-desc">
+                    <p>By creating an account, you can save your favorite animals, receive updates on their well-being, and get exclusive access to behind-the-scenes content. Join our community of animal lovers and make a difference in the lives of our beloved creatures!</p>
+                </div>
+            </div>
+        </div>
+     </div>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="nav-wrap">
+                <div class="logo">
+                    <a href="index.html"><img src="/public/assets/images/Logo.png" alt="website logo"></a>
+                </div>
+                <div class="nav-other">
+                    <div class="tabs">
+                        <button class="close-sidebar">&times;</button>
+                        <ul>
+                            <li><a href="/index.html">ABOUT</a></li>
+                            <li><a href="/src/pages/map/index.html">MAP</a></li>
+                            <li class="active"><a href="/src/pages/zoos/panda.html">ZOOS</a></li>
+                            <li><a href="/src/pages/contact/index.html">CONTACT US</a></li>
+                            <li><a href="https://www.figma.com/file/lnK11foY8Aoa6oOlDXovVN/Online-ZOO-Project?node-id=0%3A1">DESIGN</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-socials">
+                        <a href="https://www.youtube.com/c/RSschool"><img src="/public/assets/icons/YouTube.png" alt="youtube logo"></a>
+                        <a href="https://www.instagram.com/rsschool_en/?hl=en"><img src="/public/assets/icons/Instagram.png" alt="instagram logo"></a>
+                        <a href="https://www.facebook.com/rsschoolEN/"><img src="/public/assets/icons/Facebook.png" alt="facebook logo"></a>
+                        <div class="user-trigger">
+                            <div class="user-icon-wrapper">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="user-icon-svg">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                            </div>
+                            <span id="user-profile">Sign in</span>
+                        </div>
+                    </div>
+                    <button class="toggle">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        <div id="user-section">
+            <div class="user-trigger">
+                <div class="user-icon-wrapper">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="user-icon-svg">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </div>
+                <span id="user-profile">Sign in</span>
+            </div>
+        </div>
+    </header>
+    <main>
+        <aside id="menu">
+            <div class="menu-header">
+                <div class="live-tag">LIVE <img src="/public/assets/icons/live-icon.png" alt="cam-icon"></div>
+                <button class="menu-toggle">&gt;&gt;</button>
+            </div>
+    
+            <div class="animal-nav">
+                <div class="line"></div>
+                <div class="animal-icon">
+                    <div class="circle-active">
+                        <img class="starter" src="/public/assets/icons/Panda.png" alt="panda icon">
+                    </div>
+                    <img class="opened" src="/public/assets/icons/Panda1.png" alt="panda icon">
+                    <p>Watch live from China's Panda Center</p>
+                </div>
+                <div class="line"></div>
+                <a href="eagle.html"><div class="animal-icon">
+                    <div class="circle">
+                        <img class="starter" src="/public/assets/icons/Eagle.png" alt="panda icon">
+                    </div>
+                        <img class="opened" src="/public/assets/icons/Eagle1.png" alt="panda icon">
+                    <p>Watch The Bald Eagles Nest from West End cam</p>
+                </div></a>
+                <div class="line"></div>
+                <a href="gorilla.html"><div class="animal-icon">
+                    <div class="circle">
+                        <img class="starter" src="/public/assets/icons/Gorilla.png" alt="panda icon">
+                    </div>
+                        <img class="opened" src="/public/assets/icons/Gorilla1.png" alt="panda icon">
+                    <p>Livestream from Gorilla Forest Corridor habitat cam</p>
+                </div></a>
+                <div class="line"></div>
+                <a href="lemur.html"><div class="animal-icon">
+                    <div class="circle">
+                        <img class="starter" src="/public/assets/icons/Lemur.png" alt="panda icon">
+                    </div>
+                    <img class="opened" src="/public/assets/icons/Lemur1.png" alt="panda icon">
+                    <p>The ring-tailed lemurs play in Madagascar, Lemuria Land</p>
+                </div></a>
+            </div>
+            <div class="line"></div>
+            <a href="eagle.html"><button class="down-arrow">&or;</button></a>
+        </aside>
+        <section id="live">
+            <div class="live-wrap">
+                <div class="live-header-wrap">
+                    <div class="live-header">
+                        <h2>LIVE PANDA CAMS</h2>
+                        <button>DONATE NOW &rarr;</button>
+                    </div>
+                </div>
+                <a href="https://www.youtube.com/watch?v=sGF6bOi1NfA"><div class="live-cam">
+                    <div class="video">
+                        <img src="/public/assets/images/pandacam.png" alt="Panda Video pic">
+                    </div>
+                    <div class="play">
+                        <img class="normal" src="/public/assets/icons/play.png" alt="Play button">
+                        <img src="/public/assets/icons/playactive.png" alt="play button active" class="active">
+                    </div>
+                </div></a>
+                <button class="donate-now">DONATE NOW &rarr;</button>
+                <div class="other-cams">
+                    <h3>MORE LIVE VIEWS</h3>
+                    <div class="other-cams-align">
+                        <button>&larr;</button>
+                        <img class="cam-active" src="/public/assets/icons/smallpcam1.png" alt="cam1">
+                        <img src="/public/assets/icons/smallpcam2.png" alt="cam2">
+                        <img class="removable" src="/public/assets/icons/smallpcam3.png" alt="cam3">
+                        <button>&rarr;</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <button class="donate-now1">DONATE NOW &rarr;</button>
+
+        <section id="quick-donate-section">
+            <div class="quick-donate-wrap">
+                <div class="quick-donate-text">
+                    <h3>MAKE THE BAMBOO DONATION!</h3>
+                    <p>Our process for bamboo donations first starts with a site evaluation. It is important that our team sees where the bamboo is growing, then determining if the bamboo is a species that our animals are currently eating. Thank you for your interest in donating bamboo for our pandas.</p>
+                </div>
+                <div class="quick-donate-btn">
+                    <p>Quick Donate</p>
+                    <div class="donate-btn">
+                        <p>$ DONATION AMOUNT</p>
+                        <button>&rarr;</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="animal-stats">
+            <div class="animal-stats-wrap">
+                <div class="didyouknow">
+                    <h3>DID YOU KNOW?</h3>
+                    <p>Pandas are often seen eating in a relaxed sitting posture, with their hind legs stretched out before them. They may appear sedentary, but they are skilled tree-climbers and efficient swimmers.</p>
+                </div>
+                <div class="animal-stats">
+                    <div class="stats">
+                        <p>Common name: <span>Giant Panda</span></p>
+                        <p>Scientific name: <span>Ailuropoda melanoleuca</span></p>
+                        <p>Type: <span>Herbivore</span></p>
+                        <p>Size: <span>4 to 5 feet</span></p>
+                        <p>Dier: <span>Omnivore</span></p>
+                        <p>Habitat: <span>Forests</span></p>
+                        <p>Range: <span>Eastern Asia</span><a href="../map/index.html"><span class="btn">VIEW MAP &rarr;</span></a></p>
+                    </div>
+                    <div class="animal-pic">
+                        <img src="/public/assets/images/pandazoo.png" alt="panda pic">
+                    </div>
+                </div>
+                <div class="animal-description">
+                    <p>Giant pandas are very unusual animals that eat almost exclusively bamboo, which is very low in nutrients. Because of this, they have many unique adaptations for their low-energy lifestyle. Giant pandas are solitary. They have a highly developed sense of smell that males use to avoid each other and to find females for mating in the spring. After a five-month pregnancy, females give birth to a cub or two, though they cannot care for both twins. The blind infants weigh only 5 ounces at birth and cannot crawl until they reach three months of age. They are born white, and develop their much loved coloring later. Habitat loss is the primary threat to this species. Its popularity around the world has helped the giant panda become the focus of successful conservation programs.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+      <div class="footer-wrap">
+        <div class="footer-top-column">
+          <div class="footer-images">
+            <img
+              src="/public/assets/images/LogoWhite.png"
+              alt="online zoo logo"
+            />
+            <img
+              class="yem"
+              src="/public/assets/images/YemDigital.png"
+              alt="yem digital"
+            />
+            <img
+              src="/public/assets/images/rs_school_jslogo.png"
+              alt="rs school logo"
+            />
+          </div>
+          <div class="footer-nav">
+            <ul>
+              <li><a href="/index.html">ABOUT</a></li>
+              <li><a href="/map/index.html">MAP</a></li>
+              <li><a href="/zoos/panda.html">ZOOS</a></li>
+              <li><a href="/contact/index.html">CONTACT US</a></li>
+            </ul>
+          </div>
+          <div class="footer-button">
+            <button>DONATE FOR VOLUNTEERS &rarr;</button>
+          </div>
+        </div>
+        <div class="footer-line"></div>
+        <div class="footer-bottom-column">
+          <div class="footer-copyright">
+            <p>&copy; 2021 DinaK</p>
+            <p>&copy; Yem Digital</p>
+            <p>&copy; RSSchool</p>
+          </div>
+          <div class="footer-socials">
+            <a href="https://www.youtube.com/c/RSschool"
+              ><img src="/public/assets/icons/YouTube.png" alt="youtube logo"
+            /></a>
+            <a href="https://www.instagram.com/rsschool_en/?hl=en"
+              ><img src="/public/assets/icons/Instagram.png" alt="instagram logo"
+            /></a>
+            <a href="https://www.facebook.com/rsschoolEN/"
+              ><img src="/public/assets/icons/Facebook.png" alt="facebook logo"
+            /></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script type="module" src="./script.ts"></script>
+</body>
+</html>
